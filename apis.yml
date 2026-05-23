@@ -1,0 +1,162 @@
+aid: browserbase
+name: Browserbase
+description: >-
+  Browserbase is a browser-agent platform that provides managed, headless
+  Chromium browsers and supporting web primitives for AI agents and automation
+  workloads. Customers use a single API key to spin up sessions, fetch and
+  search the web, persist context, route LLM calls, and observe agent behavior
+  across replays and logs. The company maintains the popular open-source
+  Stagehand SDK, a Director UI for agent design, a Browse CLI, and an MCP
+  server. Target customers are AI startups, agent developers, RPA teams, and
+  enterprises running production web automation, with SOC 2 Type II and HIPAA
+  options. Billing is usage-based with a free tier and paid plans on the
+  pricing page.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Headless Browser
+  - Browser Infrastructure
+  - Web Automation
+  - AI Agents
+  - Web Scraping
+  - Stagehand
+  - Playwright
+  - Puppeteer
+  - Web Search
+  - Web Fetch
+  - Model Gateway
+  - MCP
+  - Session Recording
+  - Agent Identity
+url: https://raw.githubusercontent.com/api-evangelist/browserbase/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.20'
+apis:
+  - aid: browserbase:browser-api
+    name: Browserbase API
+    description: >-
+      The Browserbase API is a REST interface for managing cloud-hosted browser
+      sessions, projects, contexts, extensions, downloads, and complementary
+      Search, Fetch, and Functions services. Agents and automation scripts
+      connect via the SDKs or Playwright/Puppeteer compatible endpoints to
+      navigate the web, capture content, and persist authenticated state.
+    humanURL: https://docs.browserbase.com
+    baseURL: https://api.browserbase.com
+    tags:
+      - Sessions
+      - Projects
+      - Contexts
+      - Extensions
+      - Downloads
+      - Search
+      - Fetch
+      - Functions
+      - Stagehand
+      - MCP
+    properties:
+      - type: Documentation
+        url: https://docs.browserbase.com
+      - type: APIReference
+        url: https://docs.browserbase.com/reference/introduction
+      - type: GettingStarted
+        url: https://docs.browserbase.com/quickstart
+      - type: SignUp
+        url: https://www.browserbase.com/sign-up
+      - type: SDK
+        url: https://github.com/browserbase/sdk-node
+      - type: SDK
+        url: https://github.com/browserbase/sdk-python
+      - type: SDK
+        url: https://github.com/browserbase/stagehand
+      - type: GitHubRepository
+        url: https://github.com/browserbase/mcp-server-browserbase
+      - type: ChangeLog
+        url: https://www.browserbase.com/changelog
+      - type: StatusPage
+        url: https://status.browserbase.com
+      - type: Pricing
+        url: https://www.browserbase.com/pricing
+      - type: Enterprise
+        url: https://www.browserbase.com/enterprise
+    features:
+      - name: Cloud Browser Sessions
+        description: Spin up Chromium sessions on demand with persistent context, recording, and multi-region routing.
+      - name: Stagehand SDK
+        description: AI-first browser automation framework optimized for agents to plan, observe, and act on pages.
+      - name: Web Search and Fetch
+        description: Token-efficient search results and lightweight URL-to-structured-data fetch endpoints.
+      - name: Agent Identity
+        description: Human-like identity layer with bot-protection integration for sites that gate automated traffic.
+      - name: Model Gateway
+        description: Unified API surface to route requests across multiple LLM providers.
+      - name: Observability and Replays
+        description: rrweb session recording, logs, and prompt tracing for debugging agent runs.
+      - name: Contexts and Extensions
+        description: Reusable browser environments, cookies, profiles, and custom Chrome extensions.
+      - name: Proxies and Static IPs
+        description: Configurable residential/datacenter proxies and IP allowlisting for enterprise use.
+      - name: 1Password Integration
+        description: Secure credential injection for sites that require human-style login.
+      - name: MCP Server
+        description: Model Context Protocol server so agents in Claude, Cursor, and other clients can drive Browserbase.
+    useCases:
+      - name: AI Agent Web Browsing
+        description: Give agents a real browser to research, fill forms, click through flows, and capture results.
+      - name: Web Scraping at Scale
+        description: Run large fleets of stealthy, parallel browsers for data extraction.
+      - name: End-to-End Testing
+        description: Drive Playwright/Puppeteer suites against production sites in managed browsers.
+      - name: RPA and Workflow Automation
+        description: Automate human-style tasks across SaaS apps without maintaining your own browser fleet.
+      - name: Visual QA and Monitoring
+        description: Capture screenshots and replays to detect UI regressions and broken flows.
+    integrations:
+      - name: Playwright
+      - name: Puppeteer
+      - name: Stagehand
+      - name: LangChain
+      - name: CrewAI
+      - name: Vercel AI SDK
+      - name: n8n
+      - name: AgentKit
+      - name: Temporal
+      - name: Hermes Agent
+      - name: Prime Intellect
+      - name: 1Password
+      - name: MCP
+    authentication:
+      - type: API Key
+        description: A single API key passed via the `x-bb-api-key` (or equivalent) header authenticates all REST and SDK calls.
+common:
+  - type: Website
+    url: https://www.browserbase.com
+  - type: Documentation
+    url: https://docs.browserbase.com
+  - type: APIReference
+    url: https://docs.browserbase.com/reference/introduction
+  - type: Blog
+    url: https://www.browserbase.com/blog
+  - type: GitHubOrganization
+    url: https://github.com/browserbase
+  - type: Pricing
+    url: https://www.browserbase.com/pricing
+  - type: Enterprise
+    url: https://www.browserbase.com/enterprise
+  - type: ChangeLog
+    url: https://www.browserbase.com/changelog
+  - type: StatusPage
+    url: https://status.browserbase.com
+  - type: SignUp
+    url: https://www.browserbase.com/sign-up
+  - type: Careers
+    url: https://www.browserbase.com/careers
+  - type: TermsOfService
+    url: https://www.browserbase.com/terms-of-service
+  - type: PrivacyPolicy
+    url: https://www.browserbase.com/privacy-policy
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
