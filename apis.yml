@@ -157,6 +157,8 @@ common:
     url: https://www.browserbase.com/terms-of-service
   - type: PrivacyPolicy
     url: https://www.browserbase.com/privacy-policy
+  - type: LLMsTxt
+    url: https://docs.browserbase.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
