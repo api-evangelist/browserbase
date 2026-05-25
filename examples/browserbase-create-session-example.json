@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.browserbase.com/v1/sessions",
+    "headers": {
+      "X-BB-API-Key": "bb_live_abc123...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "projectId": "proj_abc123",
+      "browserSettings": {
+        "viewport": { "width": 1280, "height": 800 },
+        "blockAds": true,
+        "solveCaptchas": true,
+        "recordSession": true,
+        "logSession": true,
+        "advancedStealth": true,
+        "os": "mac"
+      },
+      "timeout": 3600,
+      "keepAlive": true,
+      "proxies": true,
+      "region": "us-west-2",
+      "userMetadata": {
+        "agent": "claude-research",
+        "task": "evangelist-review"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "ses_abc123XYZ",
+      "status": "RUNNING",
+      "connectUrl": "wss://connect.browserbase.com?apiKey=bb_live_abc123...&sessionId=ses_abc123XYZ",
+      "seleniumRemoteUrl": "https://connect.browserbase.com/webdriver?sessionId=ses_abc123XYZ",
+      "signingKey": "sk_short_lived_xyz",
+      "projectId": "proj_abc123",
+      "region": "us-west-2",
+      "keepAlive": true,
+      "createdAt": "2026-05-25T12:00:00Z",
+      "startedAt": "2026-05-25T12:00:01Z",
+      "expiresAt": "2026-05-25T13:00:01Z"
+    }
+  }
+}

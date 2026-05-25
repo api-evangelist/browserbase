@@ -1,0 +1,310 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Browserbase API — Sessions
+  description: >-
+    Browserbase Sessions capability covering the cloud Chromium session
+    lifecycle: create, list, retrieve, update, logs, recordings, downloads,
+    and debug URLs. Self-contained Naftiko capability covering one
+    Browserbase business surface.
+  tags:
+    - Browserbase
+    - Sessions
+    - Headless Browser
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      BROWSERBASE_API_KEY: BROWSERBASE_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: sessions
+      baseUri: https://api.browserbase.com/v1
+      description: Browserbase Sessions consumes block. Self-contained, no shared references.
+      resources:
+        - name: sessions
+          path: /sessions
+          operations:
+            - name: createsession
+              method: POST
+              description: Browserbase Create Session
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  description: Session create body (projectId, browserSettings, region, proxies, keepAlive).
+                  required: true
+            - name: listsessions
+              method: GET
+              description: Browserbase List Sessions
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: $.
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  description: Filter by RUNNING, ERROR, TIMED_OUT, COMPLETED.
+                  required: false
+        - name: sessions-id
+          path: /sessions/{id}
+          operations:
+            - name: getsession
+              method: GET
+              description: Browserbase Get Session
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updatesession
+              method: POST
+              description: Browserbase Update Session (e.g. request release)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  description: Update body, typically { status REQUEST_RELEASE }.
+                  required: true
+        - name: sessions-id-logs
+          path: /sessions/{id}/logs
+          operations:
+            - name: getsessionlogs
+              method: GET
+              description: Browserbase Get Session Logs
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: $.
+        - name: sessions-id-recording
+          path: /sessions/{id}/recording
+          operations:
+            - name: getsessionrecording
+              method: GET
+              description: Browserbase Get Session Recording (rrweb events)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: $.
+        - name: sessions-id-downloads
+          path: /sessions/{id}/downloads
+          operations:
+            - name: getsessiondownloads
+              method: GET
+              description: Browserbase Get Session Downloads (zip)
+              outputRawFormat: binary
+              outputParameters:
+                - name: result
+                  type: string
+                  value: $.
+        - name: sessions-id-debug
+          path: /sessions/{id}/debug
+          operations:
+            - name: getsessiondebug
+              method: GET
+              description: Browserbase Get Session Debug URLs
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: apikey
+        key: X-BB-API-Key
+        value: '{{env.BROWSERBASE_API_KEY}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: sessions-rest
+      port: 8080
+      description: REST adapter for Browserbase Sessions. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/sessions
+          name: sessions
+          description: REST surface for sessions.
+          operations:
+            - method: POST
+              name: createsession
+              description: Browserbase Create Session
+              call: sessions.createsession
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: GET
+              name: listsessions
+              description: Browserbase List Sessions
+              call: sessions.listsessions
+              outputParameters:
+                - type: array
+                  mapping: $.
+        - path: /v1/sessions/{id}
+          name: sessions-id
+          description: REST surface for sessions-id.
+          operations:
+            - method: GET
+              name: getsession
+              description: Browserbase Get Session
+              call: sessions.getsession
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: updatesession
+              description: Browserbase Update Session
+              call: sessions.updatesession
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/sessions/{id}/logs
+          name: sessions-id-logs
+          description: REST surface for sessions-id-logs.
+          operations:
+            - method: GET
+              name: getsessionlogs
+              description: Browserbase Get Session Logs
+              call: sessions.getsessionlogs
+              outputParameters:
+                - type: array
+                  mapping: $.
+        - path: /v1/sessions/{id}/recording
+          name: sessions-id-recording
+          description: REST surface for sessions-id-recording.
+          operations:
+            - method: GET
+              name: getsessionrecording
+              description: Browserbase Get Session Recording
+              call: sessions.getsessionrecording
+              outputParameters:
+                - type: array
+                  mapping: $.
+        - path: /v1/sessions/{id}/downloads
+          name: sessions-id-downloads
+          description: REST surface for sessions-id-downloads.
+          operations:
+            - method: GET
+              name: getsessiondownloads
+              description: Browserbase Get Session Downloads
+              call: sessions.getsessiondownloads
+              outputParameters:
+                - type: string
+                  mapping: $.
+        - path: /v1/sessions/{id}/debug
+          name: sessions-id-debug
+          description: REST surface for sessions-id-debug.
+          operations:
+            - method: GET
+              name: getsessiondebug
+              description: Browserbase Get Session Debug URLs
+              call: sessions.getsessiondebug
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: sessions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Browserbase Sessions. One tool per consumed operation.
+      tools:
+        - name: browserbase-create-session
+          description: Browserbase Create Session
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: sessions.createsession
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: browserbase-list-sessions
+          description: Browserbase List Sessions
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.listsessions
+          outputParameters:
+            - type: array
+              mapping: $.
+        - name: browserbase-get-session
+          description: Browserbase Get Session
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.getsession
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: browserbase-update-session
+          description: Browserbase Update Session
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: sessions.updatesession
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: browserbase-get-session-logs
+          description: Browserbase Get Session Logs
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.getsessionlogs
+          outputParameters:
+            - type: array
+              mapping: $.
+        - name: browserbase-get-session-recording
+          description: Browserbase Get Session Recording
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.getsessionrecording
+          outputParameters:
+            - type: array
+              mapping: $.
+        - name: browserbase-get-session-downloads
+          description: Browserbase Get Session Downloads
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.getsessiondownloads
+          outputParameters:
+            - type: string
+              mapping: $.
+        - name: browserbase-get-session-debug
+          description: Browserbase Get Session Debug URLs
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: sessions.getsessiondebug
+          outputParameters:
+            - type: object
+              mapping: $.

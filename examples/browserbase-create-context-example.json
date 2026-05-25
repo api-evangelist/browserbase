@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.browserbase.com/v1/contexts",
+    "headers": {
+      "X-BB-API-Key": "bb_live_abc123...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "projectId": "proj_abc123"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ctx_abc123XYZ",
+      "uploadUrl": "https://storage.browserbase.com/upload/ctx_abc123XYZ?signature=...",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkq...\n-----END PUBLIC KEY-----",
+      "cipherAlgorithm": "AES-256-GCM",
+      "initializationVectorSize": 12,
+      "projectId": "proj_abc123"
+    }
+  }
+}

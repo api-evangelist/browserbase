@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.browserbase.com/v1/projects",
+    "headers": {
+      "X-BB-API-Key": "bb_live_abc123..."
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "id": "proj_abc123",
+        "name": "Evangelist Research",
+        "ownerId": "user_kinlane",
+        "defaultTimeout": 3600,
+        "concurrency": 10,
+        "createdAt": "2026-04-01T00:00:00Z",
+        "updatedAt": "2026-05-25T12:00:00Z"
+      },
+      {
+        "id": "proj_def456",
+        "name": "Naftiko Agent Sandbox",
+        "ownerId": "user_kinlane",
+        "defaultTimeout": 7200,
+        "concurrency": 25,
+        "createdAt": "2026-04-15T00:00:00Z",
+        "updatedAt": "2026-05-25T12:00:00Z"
+      }
+    ]
+  }
+}

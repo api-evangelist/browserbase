@@ -1,0 +1,32 @@
+{
+  "name": "Project",
+  "description": "The Browserbase Project object that scopes sessions, contexts, extensions, and usage under one Browserbase organization.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the project.",
+      "example": "proj_abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable project name."
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "Identifier of the user or organization that owns the project."
+    },
+    "defaultTimeout": {
+      "type": "integer",
+      "description": "Default session timeout in seconds.",
+      "example": 3600
+    },
+    "concurrency": {
+      "type": "integer",
+      "description": "Maximum concurrent sessions allowed under the project.",
+      "example": 10
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

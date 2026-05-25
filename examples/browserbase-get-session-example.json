@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.browserbase.com/v1/sessions/ses_abc123XYZ",
+    "headers": {
+      "X-BB-API-Key": "bb_live_abc123..."
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "ses_abc123XYZ",
+      "status": "RUNNING",
+      "projectId": "proj_abc123",
+      "region": "us-west-2",
+      "keepAlive": true,
+      "createdAt": "2026-05-25T12:00:00Z",
+      "updatedAt": "2026-05-25T12:05:00Z",
+      "startedAt": "2026-05-25T12:00:01Z",
+      "expiresAt": "2026-05-25T13:00:01Z"
+    }
+  }
+}

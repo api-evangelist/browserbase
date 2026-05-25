@@ -1,0 +1,158 @@
+name: Browserbase
+description: >-
+  Vocabulary of key terms, concepts, objects, and operations used across the Browserbase
+  headless-browser platform. Covers managed cloud browsers, agent-oriented automation,
+  session lifecycle, persistence, and the Stagehand SDK.
+version: "1.0"
+created: "2026-05-25"
+modified: "2026-05-25"
+tags:
+  - Headless Browser
+  - Browser Infrastructure
+  - AI Agents
+  - Web Automation
+
+terms:
+  - term: Session
+    definition: >-
+      A managed cloud Chromium browser instance. Sessions are the unit of work in
+      Browserbase: they are created against a project, optionally attached to a context,
+      driven via CDP / Playwright / Puppeteer / Stagehand, and released when complete.
+    category: Core Object
+    tags:
+      - Sessions
+      - Core
+
+  - term: Context
+    definition: >-
+      A reusable, encrypted browser profile that persists cookies, localStorage, IndexedDB,
+      and authenticated state across sessions. Contexts let an agent log in once and reuse
+      the resulting session state on later runs.
+    category: Core Object
+    tags:
+      - Contexts
+      - Persistence
+
+  - term: Project
+    definition: >-
+      A billing and grouping boundary inside a Browserbase organization. Projects scope
+      sessions, contexts, extensions, default timeouts, concurrency limits, and usage.
+    category: Core Object
+    tags:
+      - Projects
+      - Billing
+
+  - term: Extension
+    definition: >-
+      A custom Chrome extension uploaded to Browserbase as a zip and referenced by ID when
+      creating a session. Useful for in-page identity, ad blockers, dev tools, and
+      site-specific helpers.
+    category: Core Object
+    tags:
+      - Extensions
+      - Chrome
+
+  - term: Connect URL
+    definition: >-
+      WebSocket URL returned with a session that Playwright, Puppeteer, or Stagehand use
+      to connect to the running Chromium instance over the Chrome DevTools Protocol.
+    category: Endpoint
+    tags:
+      - CDP
+      - Connect
+
+  - term: Stagehand
+    definition: >-
+      Browserbase's open-source, AI-first browser-automation SDK. Stagehand exposes
+      page.act, page.observe, and page.extract primitives that planners and LLMs can use
+      to drive a browser without brittle CSS selectors.
+    category: SDK
+    tags:
+      - SDK
+      - Stagehand
+      - Agents
+
+  - term: Director
+    definition: >-
+      Browserbase's visual UI for designing, debugging, and replaying agent runs, including
+      live debugger access into running sessions.
+    category: Tool
+    tags:
+      - Tools
+      - Observability
+
+  - term: Browse CLI
+    definition: >-
+      Command-line tool for managing sessions, contexts, extensions, and project usage
+      from a terminal or CI environment.
+    category: Tool
+    tags:
+      - CLI
+      - Tools
+
+  - term: MCP Server
+    definition: >-
+      The Browserbase Model Context Protocol server, packaged at
+      github.com/browserbase/mcp-server-browserbase, exposing browser tools to MCP
+      clients like Claude Desktop and Cursor.
+    category: Integration
+    tags:
+      - MCP
+      - Agents
+
+  - term: Stealth
+    definition: >-
+      The bundle of anti-detection capabilities — UA spoofing, fingerprint normalization,
+      residential proxies, CAPTCHA solving — that helps Browserbase sessions resemble
+      human-driven browsers.
+    category: Concept
+    tags:
+      - Stealth
+      - Anti-Bot
+
+  - term: Recording
+    definition: >-
+      An rrweb-based replay of a session's DOM and input events, retrievable via
+      GET /sessions/{id}/recording.
+    category: Artifact
+    tags:
+      - Observability
+      - Replays
+
+  - term: Debug URL
+    definition: >-
+      A short-lived URL into a Chromium DevTools instance attached to a running session,
+      used for live inspection. Exposed via GET /sessions/{id}/debug.
+    category: Endpoint
+    tags:
+      - Debugging
+      - Observability
+
+  - term: Keep Alive
+    definition: >-
+      A session flag that keeps the underlying Chromium process alive across reconnects
+      until explicitly released, instead of being torn down on disconnect.
+    category: Concept
+    tags:
+      - Sessions
+      - Lifecycle
+
+  - term: Region
+    definition: >-
+      The geographic data center where a session runs (e.g. us-west-2, us-east-1,
+      eu-central-1, ap-southeast-1). Chosen at session creation to control latency and
+      data residency.
+    category: Concept
+    tags:
+      - Regions
+      - Infrastructure
+
+  - term: Agent Identity
+    definition: >-
+      Browserbase's bundle of human-like identity primitives — credential injection
+      (e.g. via 1Password), residential IPs, fingerprint stability — that present an
+      agent as a recognizable, trustworthy actor to gated sites.
+    category: Concept
+    tags:
+      - Identity
+      - Agents

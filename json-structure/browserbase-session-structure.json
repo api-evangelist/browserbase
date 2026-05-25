@@ -1,0 +1,49 @@
+{
+  "name": "Session",
+  "description": "The Browserbase Session object representing a managed cloud Chromium browser instance that automation clients drive over CDP or via SDKs.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the session.",
+      "example": "ses_abc123XYZ"
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle state of the session.",
+      "enum": ["PENDING", "RUNNING", "ERROR", "TIMED_OUT", "COMPLETED"],
+      "example": "RUNNING"
+    },
+    "connectUrl": {
+      "type": "string",
+      "description": "WebSocket URL used by Playwright/Puppeteer/Stagehand to connect to the session.",
+      "example": "wss://connect.browserbase.com?apiKey=...&sessionId=ses_abc123XYZ"
+    },
+    "seleniumRemoteUrl": {
+      "type": "string",
+      "description": "Selenium-compatible remote driver URL for the session."
+    },
+    "signingKey": {
+      "type": "string",
+      "description": "Short-lived signing key used for reconnects."
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project the session belongs to.",
+      "example": "proj_abc123"
+    },
+    "region": {
+      "type": "string",
+      "description": "Geographic region the session runs in.",
+      "example": "us-west-2"
+    },
+    "keepAlive": {
+      "type": "boolean",
+      "description": "Whether the session was created with keepAlive enabled."
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" }
+  }
+}

@@ -32,7 +32,7 @@ tags:
   - Agent Identity
 url: https://raw.githubusercontent.com/api-evangelist/browserbase/refs/heads/main/apis.yml
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
   - aid: browserbase:browser-api
@@ -71,8 +71,28 @@ apis:
         url: https://github.com/browserbase/sdk-python
       - type: SDK
         url: https://github.com/browserbase/stagehand
+      - type: SDK
+        url: https://github.com/browserbase/stagehand-python
+      - type: CLI
+        url: https://github.com/browserbase/browse-cli
       - type: GitHubRepository
         url: https://github.com/browserbase/mcp-server-browserbase
+      - type: OpenAPI
+        url: openapi/browserbase-openapi.yml
+      - type: JSONSchema
+        url: json-schema/browserbase-session-schema.json
+      - type: Plans
+        url: plans/browserbase-plans-pricing.yml
+      - type: RateLimits
+        url: rate-limits/browserbase-rate-limits.yml
+      - type: FinOps
+        url: finops/browserbase-finops.yml
+      - type: Capabilities
+        url: capabilities/sessions.yaml
+      - type: Vocabulary
+        url: vocabulary/browserbase-vocabulary.yml
+      - type: Rules
+        url: rules/browserbase-rules.yml
       - type: ChangeLog
         url: https://www.browserbase.com/changelog
       - type: StatusPage
@@ -117,7 +137,12 @@ apis:
       - name: Playwright
       - name: Puppeteer
       - name: Stagehand
+      - name: Anthropic
+        url: https://github.com/api-evangelist/anthropic
+      - name: Claude Computer Use
+      - name: OpenAI
       - name: LangChain
+      - name: LlamaIndex
       - name: CrewAI
       - name: Vercel AI SDK
       - name: n8n

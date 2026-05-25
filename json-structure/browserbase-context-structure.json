@@ -1,0 +1,34 @@
+{
+  "name": "Context",
+  "description": "The Browserbase Context object representing a reusable encrypted browser profile that can be attached to one or more sessions to persist cookies and authenticated state.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the context.",
+      "example": "ctx_abc123XYZ"
+    },
+    "uploadUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Signed URL used to upload the encrypted context payload."
+    },
+    "publicKey": {
+      "type": "string",
+      "description": "Public key used to envelope-encrypt the context payload."
+    },
+    "cipherAlgorithm": {
+      "type": "string",
+      "description": "Symmetric cipher algorithm.",
+      "example": "AES-256-GCM"
+    },
+    "initializationVectorSize": {
+      "type": "integer",
+      "description": "Required IV size, in bytes."
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project the context belongs to."
+    }
+  }
+}

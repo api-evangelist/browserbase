@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/browserbase/browserbase-context-schema.json",
+  "title": "Browserbase Context",
+  "description": "Schema for the Browserbase Context object. A context is an encrypted, reusable browser profile (cookies, localStorage, IndexedDB, and authenticated state) that can be attached to one or more sessions.",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the context."
+    },
+    "uploadUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Signed URL used to upload the context payload directly to Browserbase storage."
+    },
+    "publicKey": {
+      "type": "string",
+      "description": "Public key used to envelope-encrypt the context payload."
+    },
+    "cipherAlgorithm": {
+      "type": "string",
+      "description": "Symmetric algorithm used to encrypt the payload (e.g. AES-256-GCM)."
+    },
+    "initializationVectorSize": {
+      "type": "integer",
+      "description": "Required IV size, in bytes, for the chosen cipher algorithm."
+    },
+    "projectId": {
+      "type": "string",
+      "description": "Project the context belongs to."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Most recent update timestamp."
+    }
+  }
+}

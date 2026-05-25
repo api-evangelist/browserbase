@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/browserbase/browserbase-session-schema.json",
+  "title": "Browserbase Session",
+  "description": "Schema for the Browserbase Session object returned from POST /v1/sessions and related endpoints. Represents a cloud Chromium browser session that an agent or automation client can drive via Playwright, Puppeteer, Stagehand, or CDP.",
+  "type": "object",
+  "definitions": {
+    "SessionCreate": {
+      "type": "object",
+      "description": "Request body for creating a Browserbase session.",
+      "required": ["projectId"],
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "Identifier of the Browserbase project under which to bill and group this session."
+        },
+        "extensionId": {
+          "type": "string",
+          "description": "Optional previously-uploaded Chrome extension to load into the session."
+        },
+        "browserSettings": {
+          "type": "object",
+          "description": "Per-session browser configuration.",
+          "properties": {
+            "context": {
+              "type": "object",
+              "description": "Reuse a previously created context for cookies, localStorage, and authenticated state.",
+              "properties": {
+                "id": { "type": "string", "description": "Context ID to attach." },
+                "persist": { "type": "boolean", "description": "Whether changes made during this session should be written back to the context." }
+              }
+            },
+            "viewport": {
+              "type": "object",
+              "description": "Initial browser viewport dimensions.",
+              "properties": {
+                "width": { "type": "integer", "minimum": 1 },
+                "height": { "type": "integer", "minimum": 1 }
+              }
+            },
+            "blockAds": { "type": "boolean", "description": "When true, block known ad and tracker domains." },
+            "solveCaptchas": { "type": "boolean", "description": "When true, route CAPTCHAs through Browserbase's solving pipeline." },
+            "recordSession": { "type": "boolean", "description": "When true, record an rrweb replay of the session." },
+            "logSession": { "type": "boolean", "description": "When true, capture console, request, and response logs." },
+            "advancedStealth": { "type": "boolean", "description": "Enable advanced anti-detection fingerprint surface." },
+            "os": {
+              "type": "string",
+              "description": "Operating system fingerprint to emulate.",
+              "enum": ["windows", "mac", "linux", "mobile", "tablet"]
+            },
+            "ignoreCertificateErrors": { "type": "boolean", "description": "When true, ignore TLS certificate errors." }
+          }
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Inactivity timeout in seconds before the session is auto-released.",
+          "minimum": 60,
+          "maximum": 21600
+        },
+        "keepAlive": {
+          "type": "boolean",
+          "description": "When true, keep the session alive across reconnects until explicitly released."
+        },
+        "proxies": {
+          "description": "Either a boolean toggle for Browserbase-managed proxies, or an array of proxy configurations.",
+          "oneOf": [
+            { "type": "boolean" },
+            {
+              "type": "array",
+              "items": { "type": "object" }
+            }
+          ]
+        },
+        "region": {
+          "type": "string",
+          "description": "Geographic region to run the session in.",
+          "enum": ["us-west-2", "us-east-1", "eu-central-1", "ap-southeast-1"]
+        },
+        "userMetadata": {
+          "type": "object",
+          "description": "Arbitrary key-value metadata attached to the session.",
+          "additionalProperties": true
+        }
+      }
+    },
+    "Session": {
+      "type": "object",
+      "description": "The Browserbase Session resource.",
+      "required": ["id", "status", "projectId"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the session."
+        },
+        "connectUrl": {
+          "type": "string",
+          "description": "WebSocket URL used by Playwright/Puppeteer/Stagehand to connect to the session over CDP."
+        },
+        "seleniumRemoteUrl": {
+          "type": "string",
+          "description": "Selenium-compatible remote driver URL for the session."
+        },
+        "signingKey": {
+          "type": "string",
+          "description": "Short-lived key used to sign reconnect requests to the session."
+        },
+        "status": {
+          "type": "string",
+          "description": "Lifecycle state of the session.",
+          "enum": ["PENDING", "RUNNING", "ERROR", "TIMED_OUT", "COMPLETED"]
+        },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Most recent update timestamp." },
+        "startedAt": { "type": "string", "format": "date-time", "description": "Timestamp when the Chromium process began running." },
+        "expiresAt": { "type": "string", "format": "date-time", "description": "Timestamp at which the session will be auto-released." },
+        "projectId": { "type": "string", "description": "Project the session belongs to." },
+        "region": { "type": "string", "description": "Region the session is running in." },
+        "keepAlive": { "type": "boolean", "description": "Whether keepAlive was requested on creation." }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/definitions/SessionCreate" },
+    { "$ref": "#/definitions/Session" }
+  ]
+}

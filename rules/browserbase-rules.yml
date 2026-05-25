@@ -1,0 +1,99 @@
+extends: spectral:oas
+rules:
+  browserbase-versioned-paths:
+    description: All Browserbase API paths must be served under /v1/ or be a top-level resource that the server already prefixes.
+    message: "Path '{{property}}' should be a top-level resource (e.g. /sessions, /contexts) — the /v1 prefix is provided by the server URL."
+    given: "$.paths[*]~"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z][a-zA-Z0-9-]*(/.*)?$"
+
+  browserbase-operation-id-camel-case:
+    description: Browserbase operationIds use camelCase (e.g., createSession, getSession).
+    message: "operationId '{{value}}' should use camelCase"
+    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  browserbase-operation-id-required:
+    description: All Browserbase operations must have an operationId.
+    message: "Operation at {{path}} is missing operationId"
+    given: "$.paths[*][get,post,put,patch,delete]"
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+
+  browserbase-tags-required:
+    description: All Browserbase operations must declare at least one tag.
+    message: "Operation '{{path}}' must include at least one tag"
+    given: "$.paths[*][get,post,put,patch,delete]"
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+
+  browserbase-auth-defined:
+    description: Browserbase API must define the X-BB-API-Key apiKey security scheme.
+    message: "API must define an apiKey security scheme using header X-BB-API-Key"
+    given: "$.components.securitySchemes"
+    severity: error
+    then:
+      function: truthy
+
+  browserbase-success-response-defined:
+    description: Browserbase operations must define a 2xx success response.
+    message: "Operation '{{path}}' must define a 200 or 201 success response"
+    given: "$.paths[*][get,post,put,patch,delete].responses"
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["200"]
+            - required: ["201"]
+            - required: ["204"]
+
+  browserbase-summary-title-case:
+    description: Browserbase operation summaries should use Title Case.
+    message: "Summary '{{value}}' should use Title Case"
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  browserbase-info-contact:
+    description: API info should include a contact block.
+    message: "info.contact should be set so consumers can reach the API team"
+    given: "$.info"
+    severity: info
+    then:
+      field: contact
+      function: truthy
+
+  browserbase-info-description:
+    description: API info must include a description.
+    message: "info.description must be set"
+    given: "$.info"
+    severity: warn
+    then:
+      field: description
+      function: truthy
+
+  browserbase-tag-title-case:
+    description: OpenAPI tags should use Title Case for consistency across Browserbase resources.
+    message: "Tag '{{value}}' should use Title Case"
+    given: "$.tags[*].name"
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"

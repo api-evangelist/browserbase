@@ -1,0 +1,141 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Browserbase API — Extensions
+  description: >-
+    Browserbase Extensions capability covering custom Chrome extension upload,
+    retrieval, and deletion for use inside cloud browser sessions.
+    Self-contained Naftiko capability covering one Browserbase business
+    surface.
+  tags:
+    - Browserbase
+    - Extensions
+    - Chrome
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      BROWSERBASE_API_KEY: BROWSERBASE_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: extensions
+      baseUri: https://api.browserbase.com/v1
+      description: Browserbase Extensions consumes block. Self-contained, no shared references.
+      resources:
+        - name: extensions
+          path: /extensions
+          operations:
+            - name: uploadextension
+              method: POST
+              description: Browserbase Upload Extension (multipart .zip)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  description: Multipart payload containing the extension zip.
+                  required: true
+        - name: extensions-id
+          path: /extensions/{id}
+          operations:
+            - name: getextension
+              method: GET
+              description: Browserbase Get Extension
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: deleteextension
+              method: DELETE
+              description: Browserbase Delete Extension
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: apikey
+        key: X-BB-API-Key
+        value: '{{env.BROWSERBASE_API_KEY}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: extensions-rest
+      port: 8080
+      description: REST adapter for Browserbase Extensions. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/extensions
+          name: extensions
+          description: REST surface for extensions.
+          operations:
+            - method: POST
+              name: uploadextension
+              description: Browserbase Upload Extension
+              call: extensions.uploadextension
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/extensions/{id}
+          name: extensions-id
+          description: REST surface for extensions-id.
+          operations:
+            - method: GET
+              name: getextension
+              description: Browserbase Get Extension
+              call: extensions.getextension
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: DELETE
+              name: deleteextension
+              description: Browserbase Delete Extension
+              call: extensions.deleteextension
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: extensions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Browserbase Extensions. One tool per consumed operation.
+      tools:
+        - name: browserbase-upload-extension
+          description: Browserbase Upload Extension
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: extensions.uploadextension
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: browserbase-get-extension
+          description: Browserbase Get Extension
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: extensions.getextension
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: browserbase-delete-extension
+          description: Browserbase Delete Extension
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: extensions.deleteextension
+          outputParameters:
+            - type: object
+              mapping: $.

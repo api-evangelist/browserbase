@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.browserbase.com/v1/sessions/ses_abc123XYZ/debug",
+    "headers": {
+      "X-BB-API-Key": "bb_live_abc123..."
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "debuggerUrl": "https://debug.browserbase.com/devtools/inspector.html?ws=connect.browserbase.com/sessions/ses_abc123XYZ",
+      "debuggerFullscreenUrl": "https://debug.browserbase.com/devtools/inspector.html?ws=connect.browserbase.com/sessions/ses_abc123XYZ&fullscreen=1",
+      "wsUrl": "wss://connect.browserbase.com?sessionId=ses_abc123XYZ"
+    }
+  }
+}
