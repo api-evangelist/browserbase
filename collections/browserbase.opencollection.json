@@ -1,0 +1,350 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Browserbase API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-BB-API-Key",
+      "value": "{{X-BB-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List sessions"
+        },
+        {
+          "info": {
+            "name": "Create a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.browserbase.com/v1/sessions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a session"
+        },
+        {
+          "info": {
+            "name": "Get a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a session"
+        },
+        {
+          "info": {
+            "name": "Update a session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.browserbase.com/v1/sessions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a session"
+        },
+        {
+          "info": {
+            "name": "Get session logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get session logs"
+        },
+        {
+          "info": {
+            "name": "Get session recording",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions/:id/recording",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get session recording"
+        },
+        {
+          "info": {
+            "name": "Get session downloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions/:id/downloads",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get session downloads"
+        },
+        {
+          "info": {
+            "name": "Get session debug URLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/sessions/:id/debug",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get session debug URLs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contexts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a context",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.browserbase.com/v1/contexts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a context"
+        },
+        {
+          "info": {
+            "name": "Get a context",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/contexts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a context"
+        },
+        {
+          "info": {
+            "name": "Update a context",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.browserbase.com/v1/contexts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a context"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/projects"
+          },
+          "docs": "List projects"
+        },
+        {
+          "info": {
+            "name": "Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a project"
+        },
+        {
+          "info": {
+            "name": "Get project usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/projects/:id/usage",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get project usage"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Extensions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.browserbase.com/v1/extensions",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an extension"
+        },
+        {
+          "info": {
+            "name": "Get an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/extensions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an extension"
+        },
+        {
+          "info": {
+            "name": "Delete an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.browserbase.com/v1/extensions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an extension"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
