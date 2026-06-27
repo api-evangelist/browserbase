@@ -63,15 +63,15 @@ apis:
         url: https://docs.browserbase.com/reference/introduction
       - type: GettingStarted
         url: https://docs.browserbase.com/quickstart
-      - type: SignUp
+      - type: Signup
         url: https://www.browserbase.com/sign-up
-      - type: SDK
+      - type: SDKs
         url: https://github.com/browserbase/sdk-node
-      - type: SDK
+      - type: SDKs
         url: https://github.com/browserbase/sdk-python
-      - type: SDK
+      - type: SDKs
         url: https://github.com/browserbase/stagehand
-      - type: SDK
+      - type: SDKs
         url: https://github.com/browserbase/stagehand-python
       - type: CLI
         url: https://github.com/browserbase/browse-cli
@@ -174,7 +174,7 @@ common:
     url: https://www.browserbase.com/changelog
   - type: StatusPage
     url: https://status.browserbase.com
-  - type: SignUp
+  - type: Signup
     url: https://www.browserbase.com/sign-up
   - type: Careers
     url: https://www.browserbase.com/careers
@@ -182,7 +182,7 @@ common:
     url: https://www.browserbase.com/terms-of-service
   - type: PrivacyPolicy
     url: https://www.browserbase.com/privacy-policy
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.browserbase.com/llms.txt
 maintainers:
   - FN: Kin Lane
