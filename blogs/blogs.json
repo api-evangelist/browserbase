@@ -2,13 +2,13 @@
   "repo": "browserbase",
   "feeds": [
     {
-      "source": "https://www.browserbase.com/blog",
-      "feed_url": "",
-      "saved": 1,
-      "method": "agent-scrape"
+      "source": "https://docs.browserbase.com/reference/introduction",
+      "feed_url": "https://docs.browserbase.com/reference/introduction",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 5,
-  "fetched": "2026-06-27T12:29:56Z",
-  "agent_pulled": "2026-06-27"
+  "post_count": 7,
+  "fetched": "2026-07-11T11:50:51Z"
 }
