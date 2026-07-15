@@ -156,6 +156,8 @@ apis:
       - type: API Key
         description: A single API key passed via the `x-bb-api-key` (or equivalent) header authenticates all REST and SDK calls.
 common:
+  - type: AgenticAccess
+    url: agentic-access/browserbase-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/browserbase-vulnerability-disclosure.yml
   - type: DomainSecurity
