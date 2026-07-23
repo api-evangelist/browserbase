@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: Browserbase Contexts API
+  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  version: v1
+  contact:
+    name: Browserbase
+    url: https://docs.browserbase.com
+servers:
+- url: https://api.browserbase.com/v1
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Contexts
+paths:
+  /contexts:
+    post:
+      summary: Create a context
+      operationId: createContext
+      tags:
+      - Contexts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - projectId
+              properties:
+                projectId:
+                  type: string
+      responses:
+        '200':
+          description: Context created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+  /contexts/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a context
+      operationId: getContext
+      tags:
+      - Contexts
+      responses:
+        '200':
+          description: Context
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+    put:
+      summary: Update a context
+      operationId: updateContext
+      tags:
+      - Contexts
+      responses:
+        '200':
+          description: Context updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Context'
+components:
+  schemas:
+    Context:
+      type: object
+      properties:
+        id:
+          type: string
+        uploadUrl:
+          type: string
+          format: uri
+        publicKey:
+          type: string
+        cipherAlgorithm:
+          type: string
+        initializationVectorSize:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key

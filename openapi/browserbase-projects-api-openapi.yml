@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Browserbase Contexts Projects API
+  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  version: v1
+  contact:
+    name: Browserbase
+    url: https://docs.browserbase.com
+servers:
+- url: https://api.browserbase.com/v1
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Projects
+paths:
+  /projects:
+    get:
+      summary: List projects
+      operationId: listProjects
+      tags:
+      - Projects
+      responses:
+        '200':
+          description: Projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+  /projects/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a project
+      operationId: getProject
+      tags:
+      - Projects
+      responses:
+        '200':
+          description: Project
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+  /projects/{id}/usage:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get project usage
+      operationId: getProjectUsage
+      tags:
+      - Projects
+      responses:
+        '200':
+          description: Usage
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        ownerId:
+          type: string
+        defaultTimeout:
+          type: integer
+        concurrency:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key

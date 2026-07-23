@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Browserbase Contexts Extensions API
+  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  version: v1
+  contact:
+    name: Browserbase
+    url: https://docs.browserbase.com
+servers:
+- url: https://api.browserbase.com/v1
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Extensions
+paths:
+  /extensions:
+    post:
+      summary: Upload an extension
+      operationId: uploadExtension
+      tags:
+      - Extensions
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Extension uploaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+  /extensions/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get an extension
+      operationId: getExtension
+      tags:
+      - Extensions
+      responses:
+        '200':
+          description: Extension
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Delete an extension
+      operationId: deleteExtension
+      tags:
+      - Extensions
+      responses:
+        '204':
+          description: Deleted
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
