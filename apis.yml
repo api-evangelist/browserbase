@@ -12,9 +12,22 @@ description: >-
   options. Billing is usage-based with a free tier and paid plans on the
   pricing page.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/browserbase.png
 tags:
   - Headless Browser
   - Browser Infrastructure
@@ -35,126 +48,214 @@ created: '2026-05-23'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: browserbase:browser-api
-    name: Browserbase API
-    description: >-
-      The Browserbase API is a REST interface for managing cloud-hosted browser
-      sessions, projects, contexts, extensions, downloads, and complementary
-      Search, Fetch, and Functions services. Agents and automation scripts
-      connect via the SDKs or Playwright/Puppeteer compatible endpoints to
-      navigate the web, capture content, and persist authenticated state.
-    humanURL: https://docs.browserbase.com
-    baseURL: https://api.browserbase.com
-    tags:
-      - Sessions
-      - Projects
-      - Contexts
-      - Extensions
-      - Downloads
-      - Search
-      - Fetch
-      - Functions
-      - Stagehand
-      - MCP
-    properties:
-      - type: Documentation
-        url: https://docs.browserbase.com
-      - type: APIReference
-        url: https://docs.browserbase.com/reference/introduction
-      - type: GettingStarted
-        url: https://docs.browserbase.com/quickstart
-      - type: Signup
-        url: https://www.browserbase.com/sign-up
-      - type: SDKs
-        url: https://github.com/browserbase/sdk-node
-      - type: SDKs
-        url: https://github.com/browserbase/sdk-python
-      - type: SDKs
-        url: https://github.com/browserbase/stagehand
-      - type: SDKs
-        url: https://github.com/browserbase/stagehand-python
-      - type: CLI
-        url: https://github.com/browserbase/browse-cli
-      - type: GitHubRepository
-        url: https://github.com/browserbase/mcp-server-browserbase
-      - type: OpenAPI
-        url: openapi/browserbase-openapi.yml
-      - type: JSONSchema
-        url: json-schema/browserbase-session-schema.json
-      - type: Plans
-        url: plans/browserbase-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/browserbase-rate-limits.yml
-      - type: FinOps
-        url: finops/browserbase-finops.yml
-      - type: Capabilities
-        url: capabilities/sessions.yaml
-      - type: Vocabulary
-        url: vocabulary/browserbase-vocabulary.yml
-      - type: Rules
-        url: rules/browserbase-rules.yml
-      - type: ChangeLog
-        url: https://www.browserbase.com/changelog
-      - type: StatusPage
-        url: https://status.browserbase.com
-      - type: Pricing
-        url: https://www.browserbase.com/pricing
-      - type: Enterprise
-        url: https://www.browserbase.com/enterprise
-    features:
-      - name: Cloud Browser Sessions
-        description: Spin up Chromium sessions on demand with persistent context, recording, and multi-region routing.
-      - name: Stagehand SDK
-        description: AI-first browser automation framework optimized for agents to plan, observe, and act on pages.
-      - name: Web Search and Fetch
-        description: Token-efficient search results and lightweight URL-to-structured-data fetch endpoints.
-      - name: Agent Identity
-        description: Human-like identity layer with bot-protection integration for sites that gate automated traffic.
-      - name: Model Gateway
-        description: Unified API surface to route requests across multiple LLM providers.
-      - name: Observability and Replays
-        description: rrweb session recording, logs, and prompt tracing for debugging agent runs.
-      - name: Contexts and Extensions
-        description: Reusable browser environments, cookies, profiles, and custom Chrome extensions.
-      - name: Proxies and Static IPs
-        description: Configurable residential/datacenter proxies and IP allowlisting for enterprise use.
-      - name: 1Password Integration
-        description: Secure credential injection for sites that require human-style login.
-      - name: MCP Server
-        description: Model Context Protocol server so agents in Claude, Cursor, and other clients can drive Browserbase.
-    useCases:
-      - name: AI Agent Web Browsing
-        description: Give agents a real browser to research, fill forms, click through flows, and capture results.
-      - name: Web Scraping at Scale
-        description: Run large fleets of stealthy, parallel browsers for data extraction.
-      - name: End-to-End Testing
-        description: Drive Playwright/Puppeteer suites against production sites in managed browsers.
-      - name: RPA and Workflow Automation
-        description: Automate human-style tasks across SaaS apps without maintaining your own browser fleet.
-      - name: Visual QA and Monitoring
-        description: Capture screenshots and replays to detect UI regressions and broken flows.
-    integrations:
-      - name: Playwright
-      - name: Puppeteer
-      - name: Stagehand
-      - name: Anthropic
-        url: https://github.com/api-evangelist/anthropic
-      - name: Claude Computer Use
-      - name: OpenAI
-      - name: LangChain
-      - name: LlamaIndex
-      - name: CrewAI
-      - name: Vercel AI SDK
-      - name: n8n
-      - name: AgentKit
-      - name: Temporal
-      - name: Hermes Agent
-      - name: Prime Intellect
-      - name: 1Password
-      - name: MCP
-    authentication:
-      - type: API Key
-        description: A single API key passed via the `x-bb-api-key` (or equivalent) header authenticates all REST and SDK calls.
+- aid: browserbase:browserbase-contexts-api
+  name: Browserbase Contexts API
+  description: The Contexts API from Browserbase — 2 operation(s) for contexts.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Contexts
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-contexts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.browserbase.com
+  - type: APIReference
+    url: https://docs.browserbase.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.browserbase.com/quickstart
+  - type: Signup
+    url: https://www.browserbase.com/sign-up
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-node
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-python
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand-python
+  - type: CLI
+    url: https://github.com/browserbase/browse-cli
+  - type: GitHubRepository
+    url: https://github.com/browserbase/mcp-server-browserbase
+  - type: JSONSchema
+    url: json-schema/browserbase-session-schema.json
+  - type: Plans
+    url: plans/browserbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/browserbase-rate-limits.yml
+  - type: FinOps
+    url: finops/browserbase-finops.yml
+  - type: Capabilities
+    url: capabilities/sessions.yaml
+  - type: Vocabulary
+    url: vocabulary/browserbase-vocabulary.yml
+  - type: Rules
+    url: rules/browserbase-rules.yml
+  - type: ChangeLog
+    url: https://www.browserbase.com/changelog
+  - type: StatusPage
+    url: https://status.browserbase.com
+  - type: Pricing
+    url: https://www.browserbase.com/pricing
+  - type: Enterprise
+    url: https://www.browserbase.com/enterprise
+- aid: browserbase:browserbase-extensions-api
+  name: Browserbase Extensions API
+  description: The Extensions API from Browserbase — 2 operation(s) for extensions.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Extensions
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-extensions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.browserbase.com
+  - type: APIReference
+    url: https://docs.browserbase.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.browserbase.com/quickstart
+  - type: Signup
+    url: https://www.browserbase.com/sign-up
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-node
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-python
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand-python
+  - type: CLI
+    url: https://github.com/browserbase/browse-cli
+  - type: GitHubRepository
+    url: https://github.com/browserbase/mcp-server-browserbase
+  - type: JSONSchema
+    url: json-schema/browserbase-session-schema.json
+  - type: Plans
+    url: plans/browserbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/browserbase-rate-limits.yml
+  - type: FinOps
+    url: finops/browserbase-finops.yml
+  - type: Capabilities
+    url: capabilities/sessions.yaml
+  - type: Vocabulary
+    url: vocabulary/browserbase-vocabulary.yml
+  - type: Rules
+    url: rules/browserbase-rules.yml
+  - type: ChangeLog
+    url: https://www.browserbase.com/changelog
+  - type: StatusPage
+    url: https://status.browserbase.com
+  - type: Pricing
+    url: https://www.browserbase.com/pricing
+  - type: Enterprise
+    url: https://www.browserbase.com/enterprise
+- aid: browserbase:browserbase-projects-api
+  name: Browserbase Projects API
+  description: The Projects API from Browserbase — 3 operation(s) for projects.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.browserbase.com
+  - type: APIReference
+    url: https://docs.browserbase.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.browserbase.com/quickstart
+  - type: Signup
+    url: https://www.browserbase.com/sign-up
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-node
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-python
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand-python
+  - type: CLI
+    url: https://github.com/browserbase/browse-cli
+  - type: GitHubRepository
+    url: https://github.com/browserbase/mcp-server-browserbase
+  - type: JSONSchema
+    url: json-schema/browserbase-session-schema.json
+  - type: Plans
+    url: plans/browserbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/browserbase-rate-limits.yml
+  - type: FinOps
+    url: finops/browserbase-finops.yml
+  - type: Capabilities
+    url: capabilities/sessions.yaml
+  - type: Vocabulary
+    url: vocabulary/browserbase-vocabulary.yml
+  - type: Rules
+    url: rules/browserbase-rules.yml
+  - type: ChangeLog
+    url: https://www.browserbase.com/changelog
+  - type: StatusPage
+    url: https://status.browserbase.com
+  - type: Pricing
+    url: https://www.browserbase.com/pricing
+  - type: Enterprise
+    url: https://www.browserbase.com/enterprise
+- aid: browserbase:browserbase-sessions-api
+  name: Browserbase Sessions API
+  description: The Sessions API from Browserbase — 6 operation(s) for sessions.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.browserbase.com
+  - type: APIReference
+    url: https://docs.browserbase.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.browserbase.com/quickstart
+  - type: Signup
+    url: https://www.browserbase.com/sign-up
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-node
+  - type: SDKs
+    url: https://github.com/browserbase/sdk-python
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand
+  - type: SDKs
+    url: https://github.com/browserbase/stagehand-python
+  - type: CLI
+    url: https://github.com/browserbase/browse-cli
+  - type: GitHubRepository
+    url: https://github.com/browserbase/mcp-server-browserbase
+  - type: JSONSchema
+    url: json-schema/browserbase-session-schema.json
+  - type: Plans
+    url: plans/browserbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/browserbase-rate-limits.yml
+  - type: FinOps
+    url: finops/browserbase-finops.yml
+  - type: Capabilities
+    url: capabilities/sessions.yaml
+  - type: Vocabulary
+    url: vocabulary/browserbase-vocabulary.yml
+  - type: Rules
+    url: rules/browserbase-rules.yml
+  - type: ChangeLog
+    url: https://www.browserbase.com/changelog
+  - type: StatusPage
+    url: https://status.browserbase.com
+  - type: Pricing
+    url: https://www.browserbase.com/pricing
+  - type: Enterprise
+    url: https://www.browserbase.com/enterprise
 common:
   - type: AgenticAccess
     url: agentic-access/browserbase-agentic-access.yml
