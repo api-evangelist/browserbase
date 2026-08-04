@@ -1,0 +1,20 @@
+{
+  "provider": "browserbase",
+  "sources": [
+    "browserbase-contexts-api-openapi.yml",
+    "browserbase-extensions-api-openapi.yml",
+    "browserbase-projects-api-openapi.yml",
+    "browserbase-sessions-api-openapi.yml"
+  ],
+  "outputs": [
+    "browserbase-contexts-api-openapi.yml",
+    "browserbase-extensions-api-openapi.yml",
+    "browserbase-projects-api-openapi.yml",
+    "browserbase-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
