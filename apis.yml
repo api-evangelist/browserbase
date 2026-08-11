@@ -86,8 +86,6 @@ apis:
     url: rate-limits/browserbase-rate-limits.yml
   - type: FinOps
     url: finops/browserbase-finops.yml
-  - type: Capabilities
-    url: capabilities/sessions.yaml
   - type: Vocabulary
     url: vocabulary/browserbase-vocabulary.yml
   - type: Rules
@@ -138,8 +136,6 @@ apis:
     url: rate-limits/browserbase-rate-limits.yml
   - type: FinOps
     url: finops/browserbase-finops.yml
-  - type: Capabilities
-    url: capabilities/sessions.yaml
   - type: Vocabulary
     url: vocabulary/browserbase-vocabulary.yml
   - type: Rules
@@ -190,8 +186,6 @@ apis:
     url: rate-limits/browserbase-rate-limits.yml
   - type: FinOps
     url: finops/browserbase-finops.yml
-  - type: Capabilities
-    url: capabilities/sessions.yaml
   - type: Vocabulary
     url: vocabulary/browserbase-vocabulary.yml
   - type: Rules
@@ -242,8 +236,6 @@ apis:
     url: rate-limits/browserbase-rate-limits.yml
   - type: FinOps
     url: finops/browserbase-finops.yml
-  - type: Capabilities
-    url: capabilities/sessions.yaml
   - type: Vocabulary
     url: vocabulary/browserbase-vocabulary.yml
   - type: Rules
@@ -257,6 +249,13 @@ apis:
   - type: Enterprise
     url: https://www.browserbase.com/enterprise
 common:
+  - type: IssueTracker
+    url: https://github.com/browserbase/mcp-server-browserbase/issues
+  - type: Releases
+    url: https://github.com/browserbase/mcp-server-browserbase/releases
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/browserbase/mcp-server-browserbase/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/browserbase-agentic-access.yml
   - type: VulnerabilityDisclosure
