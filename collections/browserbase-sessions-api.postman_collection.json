@@ -1,0 +1,818 @@
+{
+  "item": [
+    {
+      "id": "8b0d56d2-87d0-48ce-a3b6-4cb4b91b8b15",
+      "name": "Sessions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "624b0a04-5cf3-4249-bd6f-e3348bfeae07",
+          "name": "Create a session",
+          "request": {
+            "name": "Create a session",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectId\": \"<string>\",\n  \"extensionId\": \"<string>\",\n  \"browserSettings\": {\n    \"context\": {\n      \"id\": \"<string>\",\n      \"persist\": \"<boolean>\"\n    },\n    \"viewport\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\"\n    },\n    \"blockAds\": \"<boolean>\",\n    \"solveCaptchas\": \"<boolean>\",\n    \"recordSession\": \"<boolean>\",\n    \"logSession\": \"<boolean>\",\n    \"advancedStealth\": \"<boolean>\",\n    \"os\": \"<string>\",\n    \"ignoreCertificateErrors\": \"<boolean>\"\n  },\n  \"timeout\": \"<integer>\",\n  \"keepAlive\": \"<boolean>\",\n  \"proxies\": \"<boolean>\",\n  \"region\": \"<string>\",\n  \"userMetadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false,\n    \"key_2\": 3862,\n    \"key_3\": 1606\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17b31456-48a9-4647-aab3-2da6e01bec60",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"projectId\": \"<string>\",\n  \"extensionId\": \"<string>\",\n  \"browserSettings\": {\n    \"context\": {\n      \"id\": \"<string>\",\n      \"persist\": \"<boolean>\"\n    },\n    \"viewport\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\"\n    },\n    \"blockAds\": \"<boolean>\",\n    \"solveCaptchas\": \"<boolean>\",\n    \"recordSession\": \"<boolean>\",\n    \"logSession\": \"<boolean>\",\n    \"advancedStealth\": \"<boolean>\",\n    \"os\": \"<string>\",\n    \"ignoreCertificateErrors\": \"<boolean>\"\n  },\n  \"timeout\": \"<integer>\",\n  \"keepAlive\": \"<boolean>\",\n  \"proxies\": \"<boolean>\",\n  \"region\": \"<string>\",\n  \"userMetadata\": {\n    \"key_0\": 1069\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"connectUrl\": \"string\",\n  \"seleniumRemoteUrl\": \"string\",\n  \"signingKey\": \"string\",\n  \"status\": \"PENDING\",\n  \"createdAt\": \"1979-02-08T09:22:27.763Z\",\n  \"updatedAt\": \"1970-08-09T08:37:27.206Z\",\n  \"startedAt\": \"1996-06-22T15:26:55.334Z\",\n  \"expiresAt\": \"1999-02-01T10:59:29.770Z\",\n  \"projectId\": \"string\",\n  \"region\": \"string\",\n  \"keepAlive\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f549838-a943-44ea-8132-c452e9ff79ed",
+          "name": "List sessions",
+          "request": {
+            "name": "List sessions",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f90506f8-4f2d-4aaa-b056-e2c081c3248b",
+              "name": "List of sessions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"connectUrl\": \"string\",\n    \"seleniumRemoteUrl\": \"string\",\n    \"signingKey\": \"string\",\n    \"status\": \"PENDING\",\n    \"createdAt\": \"1992-07-14T03:26:07.328Z\",\n    \"updatedAt\": \"1992-09-24T15:22:51.802Z\",\n    \"startedAt\": \"1981-12-08T13:03:29.598Z\",\n    \"expiresAt\": \"1958-09-29T20:25:11.099Z\",\n    \"projectId\": \"string\",\n    \"region\": \"string\",\n    \"keepAlive\": false\n  },\n  {\n    \"id\": \"string\",\n    \"connectUrl\": \"string\",\n    \"seleniumRemoteUrl\": \"string\",\n    \"signingKey\": \"string\",\n    \"status\": \"PENDING\",\n    \"createdAt\": \"1958-12-13T18:14:05.086Z\",\n    \"updatedAt\": \"1971-01-12T23:54:01.448Z\",\n    \"startedAt\": \"1947-11-23T19:44:13.732Z\",\n    \"expiresAt\": \"1955-06-01T02:03:33.668Z\",\n    \"projectId\": \"string\",\n    \"region\": \"string\",\n    \"keepAlive\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd5fbac0-bf9b-4e2f-9952-8d1c8c0407cf",
+          "name": "Get a session",
+          "request": {
+            "name": "Get a session",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a3b2980-0fbc-4be0-9b24-3182d103b851",
+              "name": "Session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"connectUrl\": \"string\",\n  \"seleniumRemoteUrl\": \"string\",\n  \"signingKey\": \"string\",\n  \"status\": \"PENDING\",\n  \"createdAt\": \"1979-02-08T09:22:27.763Z\",\n  \"updatedAt\": \"1970-08-09T08:37:27.206Z\",\n  \"startedAt\": \"1996-06-22T15:26:55.334Z\",\n  \"expiresAt\": \"1999-02-01T10:59:29.770Z\",\n  \"projectId\": \"string\",\n  \"region\": \"string\",\n  \"keepAlive\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "611f3440-8d38-4be8-b5c9-3c80003a334f",
+          "name": "Update a session",
+          "request": {
+            "name": "Update a session",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1398764b-ae9d-4131-9530-940ada6a5200",
+              "name": "Session updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"connectUrl\": \"string\",\n  \"seleniumRemoteUrl\": \"string\",\n  \"signingKey\": \"string\",\n  \"status\": \"PENDING\",\n  \"createdAt\": \"1979-02-08T09:22:27.763Z\",\n  \"updatedAt\": \"1970-08-09T08:37:27.206Z\",\n  \"startedAt\": \"1996-06-22T15:26:55.334Z\",\n  \"expiresAt\": \"1999-02-01T10:59:29.770Z\",\n  \"projectId\": \"string\",\n  \"region\": \"string\",\n  \"keepAlive\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82406943-7c2a-4be9-9349-ba2b37c6eb7d",
+          "name": "Get session logs",
+          "request": {
+            "name": "Get session logs",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id",
+                "logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92651639-12fe-436b-bce2-9f3cc99ed7e7",
+              "name": "Logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94b40aa5-37a0-4331-863f-835f8bc37786",
+          "name": "Get session recording",
+          "request": {
+            "name": "Get session recording",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id",
+                "recording"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7dc8bc3-62c0-4527-8427-7a8af8922489",
+              "name": "Recording events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id",
+                    "recording"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8e31044-baf5-4d44-a3f3-c65b7bca1e5d",
+          "name": "Get session downloads",
+          "request": {
+            "name": "Get session downloads",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id",
+                "downloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/zip"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e0db445-c211-4c55-93de-aa35b4f08e7b",
+              "name": "Downloads zipped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/zip"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/zip"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11867659-c390-4577-9094-79472652c31b",
+          "name": "Get session debug URLs",
+          "request": {
+            "name": "Get session debug URLs",
+            "description": {},
+            "url": {
+              "path": [
+                "sessions",
+                ":id",
+                "debug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "391541d0-30b6-4e20-9a4a-7b859161b41e",
+              "name": "Debug URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":id",
+                    "debug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BB-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"debuggerUrl\": \"https://xIQJPiYsJtErth.lhD9f3pk2PNohUF4JdEffmagv\",\n  \"debuggerFullscreenUrl\": \"http://Bm.svn2vk,OuEVcVz3GxdxFcDlWbogjFU4,3e63rT2\",\n  \"wsUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.browserbase.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d54e2f8-9b63-4ed3-9fa8-d0320083f031",
+    "name": "Browserbase Contexts Sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.\n\nContact Support:\n Name: Browserbase",
+      "type": "text/plain"
+    }
+  }
+}

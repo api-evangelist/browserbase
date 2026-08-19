@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Browserbase Contexts Extensions API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-BB-API-Key",
+      "value": "{{X-BB-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Extensions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.browserbase.com/v1/extensions",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an extension"
+        },
+        {
+          "info": {
+            "name": "Get an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.browserbase.com/v1/extensions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an extension"
+        },
+        {
+          "info": {
+            "name": "Delete an extension",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.browserbase.com/v1/extensions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an extension"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
