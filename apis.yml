@@ -54,6 +54,8 @@ apis:
   humanURL: https://docs.browserbase.com
   baseURL: https://api.browserbase.com
   tags:
+  - Context
+  tags_raw:
   - Contexts
   properties:
   - type: OpenAPI
@@ -154,6 +156,8 @@ apis:
   humanURL: https://docs.browserbase.com
   baseURL: https://api.browserbase.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
