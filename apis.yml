@@ -68,7 +68,7 @@ apis:
   humanURL: https://docs.browserbase.com
   baseURL: https://api.browserbase.com
   tags:
-  - Contexts
+  - Context
   tags_raw:
   - Contexts
   properties:
