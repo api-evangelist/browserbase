@@ -43,6 +43,10 @@ accessModel:
 position: Producing
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/browserbase.png
+x-docs-platform: mintlify
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-21
+x-docs-hosting: vercel
 tags:
   - Headless Browser
   - Browser Infrastructure
