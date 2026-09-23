@@ -1,10 +1,7 @@
 {
   "provider": "browserbase",
   "sources": [
-    "browserbase-contexts-api-openapi.yml",
-    "browserbase-extensions-api-openapi.yml",
-    "browserbase-projects-api-openapi.yml",
-    "browserbase-sessions-api-openapi.yml"
+    "_original/browserbase-openapi.yml"
   ],
   "outputs": [
     "browserbase-contexts-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "browserbase-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "browserbase-contexts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "browserbase-extensions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "browserbase-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "browserbase-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Browserbase Contexts API
   description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
