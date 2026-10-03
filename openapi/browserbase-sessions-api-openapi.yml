@@ -191,43 +191,6 @@ paths:
                     type: string
 components:
   schemas:
-    Session:
-      type: object
-      properties:
-        id:
-          type: string
-        connectUrl:
-          type: string
-        seleniumRemoteUrl:
-          type: string
-        signingKey:
-          type: string
-        status:
-          type: string
-          enum:
-          - PENDING
-          - RUNNING
-          - ERROR
-          - TIMED_OUT
-          - COMPLETED
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        startedAt:
-          type: string
-          format: date-time
-        expiresAt:
-          type: string
-          format: date-time
-        projectId:
-          type: string
-        region:
-          type: string
-        keepAlive:
-          type: boolean
     SessionCreate:
       type: object
       required:
@@ -296,6 +259,43 @@ components:
         userMetadata:
           type: object
           additionalProperties: true
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+        connectUrl:
+          type: string
+        seleniumRemoteUrl:
+          type: string
+        signingKey:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - ERROR
+          - TIMED_OUT
+          - COMPLETED
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        projectId:
+          type: string
+        region:
+          type: string
+        keepAlive:
+          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
