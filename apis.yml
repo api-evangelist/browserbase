@@ -62,6 +62,7 @@ tags:
   - MCP
   - Session Recording
   - Agent Identity
+  - Browser Automation
 url: https://raw.githubusercontent.com/api-evangelist/browserbase/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-25'
