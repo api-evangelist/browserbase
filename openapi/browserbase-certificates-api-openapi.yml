@@ -1,0 +1,113 @@
+openapi: 3.2.0
+info:
+  title: Browserbase Certificates API
+  description: Browserbase API for 3rd party developers
+  version: v1
+servers:
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
+security:
+- BrowserbaseAuth: []
+tags:
+- name: Certificates
+paths:
+  /v1/certificates:
+    post:
+      operationId: Certificates_upload
+      summary: Upload a Certificate
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+              - file
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+      tags:
+      - Certificates
+    get:
+      operationId: Certificates_list
+      summary: List Certificates
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate'
+      tags:
+      - Certificates
+  /v1/certificates/{id}:
+    get:
+      operationId: Certificates_get
+      summary: Get a Certificate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+      tags:
+      - Certificates
+    delete:
+      operationId: Certificates_delete
+      summary: Delete a Certificate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: There is no content to send for this request, but the headers may be useful.
+      tags:
+      - Certificates
+components:
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        projectId:
+          description: The Project ID linked to the uploaded Certificate.
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - projectId
+  securitySchemes:
+    BrowserbaseAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

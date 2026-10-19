@@ -1,74 +1,95 @@
 openapi: 3.2.0
 info:
   title: Browserbase Contexts API
-  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  description: Browserbase API for 3rd party developers
   version: v1
-  contact:
-    name: Browserbase
-    url: https://docs.browserbase.com
 servers:
-- url: https://api.browserbase.com/v1
-  description: Production
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
 security:
-- ApiKeyAuth: []
+- BrowserbaseAuth: []
 tags:
 - name: Contexts
 paths:
-  /contexts:
+  /v1/contexts:
     post:
-      summary: Create a context
-      operationId: createContext
-      tags:
-      - Contexts
+      operationId: Contexts_create
+      summary: Create a Context
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               type: object
-              required:
-              - projectId
               properties:
                 projectId:
+                  description: The Project ID. Can be found in [Settings](https://www.browserbase.com/settings). Optional - if not provided, the project will be inferred from the API key.
                   type: string
+                name:
+                  description: Optional user-defined name for the Context. Leading and trailing whitespace is trimmed before storage. Names are unique within the project among active Contexts, compared case-insensitively.
+                  type: string
+                  maxLength: 128
+                  minLength: 1
       responses:
-        '200':
-          description: Context created
+        '201':
+          description: The request has succeeded and a new resource has been created as a result.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Context'
-  /contexts/{id}:
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+                type: object
+                properties:
+                  id:
+                    type: string
+                  publicKey:
+                    description: The public key to encrypt the user-data-directory.
+                    type: string
+                  cipherAlgorithm:
+                    description: The cipher algorithm used to encrypt the user-data-directory. AES-256-CBC is currently the only supported algorithm.
+                    type: string
+                  initializationVectorSize:
+                    description: The initialization vector size used to encrypt the user-data-directory. [Read more about how to use it](/features/contexts).
+                    type: integer
+                    format: uint8
+                required:
+                - id
+                - publicKey
+                - cipherAlgorithm
+                - initializationVectorSize
+      tags:
+      - Contexts
+  /v1/contexts/{id}:
     get:
-      summary: Get a context
-      operationId: getContext
-      tags:
-      - Contexts
+      operationId: Contexts_get
+      summary: Get a Context
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: Context
+          description: The request has succeeded.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Context'
-    put:
-      summary: Update a context
-      operationId: updateContext
       tags:
       - Contexts
+    delete:
+      operationId: Contexts_delete
+      summary: Delete a Context
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
-        '200':
-          description: Context updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Context'
+        '204':
+          description: There is no content to send for this request, but the headers may be useful.
+      tags:
+      - Contexts
 components:
   schemas:
     Context:
@@ -76,17 +97,28 @@ components:
       properties:
         id:
           type: string
-        uploadUrl:
+        createdAt:
           type: string
-          format: uri
-        publicKey:
+          format: date-time
+        updatedAt:
           type: string
-        cipherAlgorithm:
+          format: date-time
+        projectId:
+          description: The Project ID linked to the uploaded Context.
           type: string
-        initializationVectorSize:
-          type: integer
+        name:
+          description: Optional user-defined name for the Context. Leading and trailing whitespace is trimmed before storage. Names are unique within the project among active Contexts, compared case-insensitively.
+          type: string
+          maxLength: 128
+          minLength: 1
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - projectId
   securitySchemes:
-    ApiKeyAuth:
+    BrowserbaseAuth:
       type: apiKey
       in: header
       name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

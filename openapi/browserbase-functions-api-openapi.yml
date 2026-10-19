@@ -1,0 +1,1078 @@
+openapi: 3.2.0
+info:
+  title: Browserbase Functions API
+  description: Browserbase API for 3rd party developers
+  version: v1
+servers:
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
+security:
+- BrowserbaseAuth: []
+tags:
+- name: Functions
+paths:
+  /v1/functions:
+    get:
+      operationId: Functions_list
+      summary: List Functions
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 100
+          minimum: 1
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Function'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - data
+                - total
+      tags:
+      - Functions
+  /v1/functions/builds:
+    get:
+      operationId: FunctionBuilds_list
+      summary: List Function Builds
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 100
+          minimum: 1
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FunctionBuild'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - data
+                - total
+      tags:
+      - Functions
+  /v1/functions/builds/{id}:
+    get:
+      operationId: FunctionBuilds_get
+      summary: Get a Function Build
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FunctionBuild'
+      tags:
+      - Functions
+  /v1/functions/builds/{id}/logs:
+    get:
+      operationId: FunctionBuilds_getLogs
+      summary: Get Function Build Logs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  logs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FunctionBuildLog'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - logs
+                - total
+      tags:
+      - Functions
+  /v1/functions/invocations/{id}:
+    get:
+      operationId: Invocations_get
+      summary: Get an Invocation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Invocation'
+                - type: object
+                  properties:
+                    cause:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          enum:
+                          - TIMED_OUT
+                          - INTERNAL_ERROR
+                          - WORKLOAD_ERROR
+                        message:
+                          type: string
+                          minLength: 1
+                      required:
+                      - code
+      tags:
+      - Functions
+  /v1/functions/invocations/{id}/logs:
+    get:
+      operationId: Invocations_getLogs
+      summary: Get Invocation Logs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  logs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InvocationLog'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - logs
+                - total
+      tags:
+      - Functions
+  /v1/functions/versions/{id}:
+    get:
+      operationId: FunctionVersions_get
+      summary: Get a Function Version
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FunctionVersion'
+      tags:
+      - Functions
+  /v1/functions/versions/{id}/invocations:
+    get:
+      operationId: FunctionVersions_listInvocations
+      summary: List Invocations for a Function Version
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 100
+          minimum: 1
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invocation'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - results
+                - total
+      tags:
+      - Functions
+  /v1/functions/{id}:
+    get:
+      operationId: Functions_get
+      summary: Get a Function
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Function'
+      tags:
+      - Functions
+  /v1/functions/{id}/invoke:
+    post:
+      operationId: Functions_invoke
+      summary: Invoke a Function
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                params:
+                  description: JSON object that can be stored in a JSONB column
+                  type: object
+                  additionalProperties: true
+                  properties: {}
+                sessionCreateParams:
+                  type: object
+                  properties:
+                    extensionId:
+                      description: The uploaded Extension ID. See [Upload Extension](/reference/api/upload-an-extension).
+                      type: string
+                    browserSettings:
+                      type: object
+                      properties:
+                        context:
+                          type: object
+                          properties:
+                            id:
+                              description: The Context ID.
+                              type: string
+                            persist:
+                              description: Whether or not to persist the context after browsing. Defaults to `false`.
+                              type: boolean
+                          required:
+                          - id
+                        extensionId:
+                          description: The uploaded Extension ID. See [Upload Extension](/reference/api/upload-an-extension).
+                          type: string
+                        viewport:
+                          type: object
+                          properties:
+                            width:
+                              description: The width of the browser.
+                              type: integer
+                            height:
+                              description: The height of the browser.
+                              type: integer
+                        blockAds:
+                          description: Enable or disable ad blocking in the browser. Defaults to `false`.
+                          type: boolean
+                        solveCaptchas:
+                          description: Enable or disable captcha solving in the browser. Defaults to `true`.
+                          type: boolean
+                        recordSession:
+                          description: Enable or disable session recording. Defaults to `true`.
+                          type: boolean
+                        logSession:
+                          description: Enable or disable session logging. Defaults to `true`.
+                          type: boolean
+                        advancedStealth:
+                          description: 'Advanced Browser Stealth Mode. Deprecated: use `verified` instead.'
+                          type: boolean
+                          deprecated: true
+                        verified:
+                          description: Verified Browser Mode
+                          type: boolean
+                        captchaImageSelector:
+                          description: Custom selector for captcha image. See [Custom Captcha Solving](/features/stealth-mode#custom-captcha-solving)
+                          type: string
+                        captchaInputSelector:
+                          description: Custom selector for captcha input. See [Custom Captcha Solving](/features/stealth-mode#custom-captcha-solving)
+                          type: string
+                        os:
+                          description: 'Operating system for stealth mode. Valid values: windows, mac, linux, mobile, tablet'
+                          type: string
+                          enum:
+                          - windows
+                          - mac
+                          - linux
+                          - mobile
+                          - tablet
+                        size:
+                          description: '[NOT IN DOCS] Resource size of the browser.'
+                          type: string
+                          default: small
+                          enum:
+                          - small
+                          - medium
+                          - large
+                        enableNativeSelectPolyfill:
+                          description: '[NOT IN DOCS] Enable native select polyfill. This gives support a break-glass option to disable the polyfill.'
+                          type: boolean
+                        enablePdfViewer:
+                          description: '[NOT IN DOCS] Enable PDF viewer. This gives support a break-glass option to enable the viewer when users want to view PDFs in-browser.'
+                          type: boolean
+                        extensions:
+                          description: '[NOT IN DOCS] List of pre-installed extension names and custom extension ids to enable on the browser'
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - onepassword
+                            - browser-events
+                          default: []
+                        allowedDomains:
+                          description: An optional list of allowed domains for the session. If you pass one or more domains, Browserbase restricts top-level (main-frame) page navigations to the listed domains and their subdomains. For example, `example.com` also permits `www.example.com` and `a.b.example.com`, but not `notexample.com`. Matching is domain-based, not full-URL. An empty list (the default) disables the restriction entirely. Browserbase enforces only main-frame navigations; it does not block iframe/subframe loads or other in-page resource requests (images, scripts, XHR, etc.).
+                          type: array
+                          items:
+                            type: string
+                          default: []
+                        ignoreCertificateErrors:
+                          description: Enable or disable ignoring of certificate errors in the browser. Defaults to `false`, so TLS certificate validation is enforced; set to `true` to ignore certificate errors (for example, to reach hosts with expired or self-signed certificates).
+                          type: boolean
+                    proxies:
+                      description: Proxy configuration. Can be true for default proxy, or an array of proxy configurations.
+                      anyOf:
+                      - type: array
+                        items:
+                          anyOf:
+                          - $ref: '#/components/schemas/BrowserbaseProxyConfig'
+                          - $ref: '#/components/schemas/ExternalProxyConfig'
+                          - $ref: '#/components/schemas/NoneProxyConfig'
+                      - type: boolean
+                    proxySettings:
+                      description: Supplementary proxy settings. Optional.
+                      type: object
+                      properties:
+                        caCertificates:
+                          description: The TLS certificate IDs to trust. Optional.
+                          type: array
+                          items:
+                            format: uuid
+                            type: string
+                          default: []
+                    userMetadata:
+                      description: Arbitrary user metadata to attach to the session. To learn more about user metadata, see [User Metadata](/features/sessions#user-metadata).
+                      type: object
+                      additionalProperties: true
+                      properties: {}
+                    timeout:
+                      description: Duration in seconds after which the function invocation will automatically end. Defaults to 900 (15 minutes).
+                      type: integer
+                      default: 900
+                      maximum: 900
+                      minimum: 60
+      responses:
+        '202':
+          description: The request has been accepted for processing, but processing has not yet completed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invocation'
+      tags:
+      - Functions
+  /v1/functions/{id}/secrets:
+    get:
+      operationId: Functions_listSecrets
+      summary: List Function Secrets
+      description: List secrets attached to a function. Supports filtering by secret creation time. Returns metadata only.
+      parameters:
+      - name: startAt
+        in: query
+        description: Only return secrets created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: endAt
+        in: query
+        description: Only return secrets created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        description: Maximum number of results to return.
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 1000
+          minimum: 1
+      - name: cursor
+        in: query
+        description: Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Keep the same filters across pages. Omit to start from the first page.
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The page of matching secrets.
+          content:
+            application/json:
+              schema:
+                description: A page of secrets.
+                type: object
+                properties:
+                  data:
+                    description: The page of matching secrets.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Secret'
+                  limit:
+                    description: The maximum number of results returned in this page.
+                    type: integer
+                  nextCursor:
+                    description: Cursor for the next page. Pass it back as `cursor` on the next request to continue paging. null when there are no more results.
+                    anyOf:
+                    - type: string
+                required:
+                - data
+                - limit
+                - nextCursor
+        '400':
+          description: Invalid Function ID, query parameters, or cursor, or startAt is after endAt.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+        '404':
+          description: The Function does not exist in the project.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+      tags:
+      - Functions
+    post:
+      operationId: Functions_attachSecret
+      summary: Attach a Secret to a Function
+      description: 'Attach a secret to a Function, taking effect on the Function''s next invocation. Note: Attaching a secret that is already attached succeeds to support idempotency.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secretId:
+                  description: 'The id of the project secret to attach (the `id` returned by POST /v1/secrets). Idempotent: re-attaching an already-attached secret succeeds.'
+                  type: string
+                  format: uuid
+              required:
+              - secretId
+      responses:
+        '204':
+          description: The secret was attached to the function.
+        '400':
+          description: Invalid request. The Function ID and secret ID must be UUIDs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+        '404':
+          description: The Function or secret does not exist in the project.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+      tags:
+      - Functions
+  /v1/functions/{id}/secrets/{secretId}:
+    delete:
+      operationId: Functions_detachSecret
+      summary: Detach a Secret from a Function
+      description: 'Detach a secret from a Function, taking effect on the Function''s next invocation. Note: Detaching a secret that is not attached succeeds to support idempotency.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: secretId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: The secret was detached from the function.
+        '400':
+          description: Invalid request. The Function ID and secret ID must be UUIDs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+        '404':
+          description: The Function does not exist in the project. Detaching a secret that is not attached succeeds.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+      tags:
+      - Functions
+  /v1/functions/{id}/versions:
+    get:
+      operationId: Functions_listVersions
+      summary: List Function Versions
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 100
+          minimum: 1
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FunctionVersion'
+                  total:
+                    type: integer
+                    minimum: 0
+                required:
+                - results
+                - total
+      tags:
+      - Functions
+components:
+  schemas:
+    FunctionBuildLog:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: number
+      required:
+      - message
+      - timestamp
+    Secret:
+      type: object
+      properties:
+        id:
+          description: Unique identifier of the secret.
+          type: string
+        secretKey:
+          description: The name the secret value is stored under.
+          type: string
+      required:
+      - id
+      - secretKey
+    NoneProxyConfig:
+      type: object
+      properties:
+        type:
+          description: Type of proxy. Always 'none' for this config.
+          type: string
+          enum:
+          - none
+        domainPattern:
+          description: Domain pattern for which this proxy should be used. If omitted, defaults to all domains. Optional.
+          type: string
+      required:
+      - type
+    FunctionBuild:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        request:
+          type: object
+          properties:
+            entrypoint:
+              type: string
+              minLength: 1
+            functionNames:
+              type: array
+              items:
+                minLength: 1
+                type: string
+          required:
+          - entrypoint
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - FAILED
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        builtFunctions:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/Function'
+            - type: object
+              properties:
+                createdVersion:
+                  $ref: '#/components/schemas/FunctionVersion'
+              required:
+              - createdVersion
+        cause:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+              - NO_MANIFESTS_FOUND
+              - TOO_MANY_MANIFESTS
+              - MANIFEST_TOO_LARGE
+              - INVALID_SESSION_CREATE_PARAMS
+              - TIMED_OUT
+            message:
+              type: string
+              minLength: 1
+          required:
+          - code
+      required:
+      - id
+      - projectId
+      - request
+      - status
+      - createdAt
+      - updatedAt
+      - startedAt
+      - expiresAt
+    ExternalProxyConfig:
+      type: object
+      properties:
+        type:
+          description: Type of proxy. Always 'external' for this config.
+          type: string
+          enum:
+          - external
+        server:
+          description: Server URL for external proxy. Required.
+          type: string
+        domainPattern:
+          description: Domain pattern for which this proxy should be used. If omitted, defaults to all domains. Optional.
+          type: string
+        username:
+          description: Username for external proxy authentication. Optional.
+          type: string
+        password:
+          description: Password for external proxy authentication. Optional.
+          type: string
+      required:
+      - type
+      - server
+    BrowserbaseProxyConfig:
+      type: object
+      properties:
+        type:
+          description: Type of proxy. Always use 'browserbase' for the Browserbase managed proxy network.
+          type: string
+          enum:
+          - browserbase
+        geolocation:
+          description: Geographic location for the proxy. Optional.
+          type: object
+          properties:
+            city:
+              description: Name of the city. Use spaces for multi-word city names. Optional.
+              type: string
+            state:
+              description: US state code (2 characters). Must also specify US as the country. Optional.
+              type: string
+              maxLength: 2
+              minLength: 2
+              pattern: ^[A-Za-z]{2}$
+            country:
+              description: Country code in ISO 3166-1 alpha-2 format
+              type: string
+              maxLength: 2
+              minLength: 2
+              pattern: ^[A-Za-z]{2}$
+          required:
+          - country
+        domainPattern:
+          description: Domain pattern for which this proxy should be used. If omitted, defaults to all domains. Optional.
+          type: string
+      required:
+      - type
+    Function:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - projectId
+      - name
+      - createdAt
+      - updatedAt
+    InvocationLog:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: number
+      required:
+      - message
+      - timestamp
+    FunctionVersion:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        functionId:
+          type: string
+          format: uuid
+        functionBuildId:
+          type: string
+          format: uuid
+        sessionCreateParams:
+          description: JSON object that can be stored in a JSONB column
+          type: object
+          additionalProperties: true
+          properties: {}
+        userParamsSchema:
+          description: JSON object that can be stored in a JSONB column
+          type: object
+          additionalProperties: true
+          properties: {}
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - projectId
+      - functionId
+      - functionBuildId
+      - createdAt
+      - updatedAt
+    Invocation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        functionId:
+          type: string
+          format: uuid
+        versionId:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        region:
+          type: string
+          minLength: 1
+        params:
+          description: JSON object that can be stored in a JSONB column
+          type: object
+          additionalProperties: true
+          properties: {}
+        status:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - FAILED
+        results:
+          description: Any JSON-serializable value that can be stored in a JSONB column
+          anyOf:
+          - type: string
+          - type: number
+          - type: boolean
+          - type: array
+            items: {}
+          - additionalProperties: true
+            type: object
+            properties: {}
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - projectId
+      - functionId
+      - versionId
+      - sessionId
+      - status
+      - createdAt
+      - updatedAt
+      - startedAt
+      - expiresAt
+  securitySchemes:
+    BrowserbaseAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

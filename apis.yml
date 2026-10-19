@@ -272,6 +272,86 @@ apis:
     url: https://www.browserbase.com/pricing
   - type: Enterprise
     url: https://www.browserbase.com/enterprise
+- aid: browserbase:browserbase-agents-api
+  name: Browserbase Agents API
+  description: The Agents API from Browserbase — 7 operation(s) for agents.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-agents-api-openapi.yml
+- aid: browserbase:browserbase-certificates-api
+  name: Browserbase Certificates API
+  description: The Certificates API from Browserbase — 2 operation(s) for certificates.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-certificates-api-openapi.yml
+- aid: browserbase:browserbase-downloads-api
+  name: Browserbase Downloads API
+  description: The Downloads API from Browserbase — 2 operation(s) for downloads.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Downloads
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-downloads-api-openapi.yml
+- aid: browserbase:browserbase-fetch-api
+  name: Browserbase Fetch API
+  description: The Fetch API from Browserbase — 1 operation(s) for fetch.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Fetch
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-fetch-api-openapi.yml
+- aid: browserbase:browserbase-functions-api
+  name: Browserbase Functions API
+  description: The Functions API from Browserbase — 13 operation(s) for functions.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Functions
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-functions-api-openapi.yml
+- aid: browserbase:browserbase-search-api
+  name: Browserbase Search API
+  description: The Search API from Browserbase — 1 operation(s) for search.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-search-api-openapi.yml
+- aid: browserbase:browserbase-secrets-api
+  name: Browserbase Secrets API
+  description: The Secrets API from Browserbase — 3 operation(s) for secrets.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-secrets-api-openapi.yml
+- aid: browserbase:browserbase-webhooks-api
+  name: Browserbase Webhooks API
+  description: The Webhooks API from Browserbase — 3 operation(s) for webhooks.
+  humanURL: https://docs.browserbase.com
+  baseURL: https://api.browserbase.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/browserbase-webhooks-api-openapi.yml
 common:
   - type: Plans
     url: plans/browserbase-plans-pricing.yml

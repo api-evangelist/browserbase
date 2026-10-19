@@ -1,0 +1,238 @@
+openapi: 3.2.0
+info:
+  title: Browserbase Fetch API
+  description: Browserbase API for 3rd party developers
+  version: v1
+servers:
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
+security:
+- BrowserbaseAuth: []
+tags:
+- name: Fetch
+paths:
+  /v1/fetch:
+    post:
+      operationId: Fetch_create
+      summary: Fetch a Page
+      description: Fetch a page and return its content, headers, and metadata.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  description: The URL to fetch
+                  type: string
+                  format: uri
+                allowRedirects:
+                  description: Whether to follow HTTP redirects
+                  type: boolean
+                  default: false
+                allowInsecureSsl:
+                  description: Whether to bypass TLS certificate verification
+                  type: boolean
+                  default: false
+                proxies:
+                  description: Whether to enable proxy support for the request
+                  type: boolean
+                  default: false
+                format:
+                  description: Output format for the response content. `raw` (default) returns the response body unchanged; `json` returns structured data (requires `schema`); `markdown` returns the page as markdown.
+                  default: raw
+                  anyOf:
+                  - type: string
+                    enum:
+                    - raw
+                  - type: string
+                    enum:
+                    - json
+                  - type: string
+                    enum:
+                    - markdown
+                schema:
+                  description: JSON Schema describing the desired structure of the response. Only used when `format` is `json`.
+                  type: object
+                  additionalProperties: {}
+              required:
+              - url
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                  statusCode:
+                    description: HTTP status code of the fetched response
+                    type: integer
+                  headers:
+                    description: Response headers as key-value pairs
+                    type: object
+                    additionalProperties:
+                      type: string
+                  content:
+                    anyOf:
+                    - type: string
+                    - type: object
+                      additionalProperties: {}
+                    description: The response body content. A string for `raw` and `markdown` formats; a structured object for `json` format (the schema-extracted result).
+                  contentType:
+                    description: The MIME type of the response
+                    type: string
+                  encoding:
+                    description: The character encoding of the response
+                    type: string
+                required:
+                - id
+                - statusCode
+                - headers
+                - content
+                - contentType
+                - encoding
+        '400':
+          description: Invalid request body, or the requested `format` is not supported for the fetched response's content type.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+        '402':
+          description: Free plan quota exceeded for the requested format.
+          content:
+            application/json:
+              schema:
+                description: Free plan quota exceeded for the requested format.
+        '403':
+          description: Access to the requested resource is forbidden.
+          content:
+            application/json:
+              schema:
+                description: Access to the requested resource is forbidden.
+        '429':
+          description: Concurrent fetch request limit exceeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+        '502':
+          description: The fetched response was too large or TLS certificate verification failed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+                - id
+        '503':
+          description: The fetch service is temporarily unavailable.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+                - id
+        '504':
+          description: The fetch request timed out.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    description: HTTP status code
+                    type: integer
+                  error:
+                    description: HTTP error name
+                    type: string
+                  message:
+                    description: Human-readable error message
+                    type: string
+                  id:
+                    description: Unique identifier for the fetch request
+                    type: string
+                required:
+                - statusCode
+                - error
+                - message
+                - id
+      tags:
+      - Fetch
+components:
+  securitySchemes:
+    BrowserbaseAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

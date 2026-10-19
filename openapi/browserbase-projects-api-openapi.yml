@@ -1,72 +1,70 @@
 openapi: 3.2.0
 info:
   title: Browserbase Projects API
-  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  description: Browserbase API for 3rd party developers
   version: v1
-  contact:
-    name: Browserbase
-    url: https://docs.browserbase.com
 servers:
-- url: https://api.browserbase.com/v1
-  description: Production
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
 security:
-- ApiKeyAuth: []
+- BrowserbaseAuth: []
 tags:
 - name: Projects
 paths:
-  /projects:
+  /v1/projects:
     get:
-      summary: List projects
-      operationId: listProjects
-      tags:
-      - Projects
+      operationId: Projects_list
+      summary: List Projects
       responses:
         '200':
-          description: Projects
+          description: The request has succeeded.
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Project'
-  /projects/{id}:
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    get:
-      summary: Get a project
-      operationId: getProject
       tags:
       - Projects
+  /v1/projects/{id}:
+    get:
+      operationId: Projects_get
+      summary: Get a Project
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: Project
+          description: The request has succeeded.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Project'
-  /projects/{id}/usage:
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    get:
-      summary: Get project usage
-      operationId: getProjectUsage
       tags:
       - Projects
+  /v1/projects/{id}/usage:
+    get:
+      operationId: Projects_usage
+      summary: Get Project Usage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: Usage
+          description: The request has succeeded.
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/ProjectUsage'
+      tags:
+      - Projects
 components:
   schemas:
     Project:
@@ -74,22 +72,48 @@ components:
       properties:
         id:
           type: string
-        name:
-          type: string
-        ownerId:
-          type: string
-        defaultTimeout:
-          type: integer
-        concurrency:
-          type: integer
         createdAt:
           type: string
           format: date-time
         updatedAt:
           type: string
           format: date-time
+        name:
+          type: string
+          minLength: 1
+        ownerId:
+          type: string
+        defaultTimeout:
+          type: integer
+          maximum: 21600
+          minimum: 60
+        concurrency:
+          description: The maximum number of sessions that this project can run concurrently.
+          type: integer
+          minimum: 1
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - name
+      - ownerId
+      - defaultTimeout
+      - concurrency
+    ProjectUsage:
+      type: object
+      properties:
+        browserMinutes:
+          type: integer
+          minimum: 0
+        proxyBytes:
+          type: integer
+          minimum: 0
+      required:
+      - browserMinutes
+      - proxyBytes
   securitySchemes:
-    ApiKeyAuth:
+    BrowserbaseAuth:
       type: apiKey
       in: header
       name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

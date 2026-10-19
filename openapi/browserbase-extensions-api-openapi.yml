@@ -1,25 +1,21 @@
 openapi: 3.2.0
 info:
   title: Browserbase Extensions API
-  description: Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.
+  description: Browserbase API for 3rd party developers
   version: v1
-  contact:
-    name: Browserbase
-    url: https://docs.browserbase.com
 servers:
-- url: https://api.browserbase.com/v1
-  description: Production
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
 security:
-- ApiKeyAuth: []
+- BrowserbaseAuth: []
 tags:
 - name: Extensions
 paths:
-  /extensions:
+  /v1/extensions:
     post:
-      summary: Upload an extension
-      operationId: uploadExtension
-      tags:
-      - Extensions
+      operationId: Extensions_upload
+      summary: Upload an Extension
       requestBody:
         required: true
         content:
@@ -30,46 +26,78 @@ paths:
                 file:
                   type: string
                   format: binary
+              required:
+              - file
       responses:
         '200':
-          description: Extension uploaded
+          description: The request has succeeded.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-  /extensions/{id}:
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+                $ref: '#/components/schemas/Extension'
+      tags:
+      - Extensions
+  /v1/extensions/{id}:
     get:
-      summary: Get an extension
-      operationId: getExtension
-      tags:
-      - Extensions
+      operationId: Extensions_get
+      summary: Get an Extension
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: Extension
+          description: The request has succeeded.
           content:
             application/json:
               schema:
-                type: object
-    delete:
-      summary: Delete an extension
-      operationId: deleteExtension
+                $ref: '#/components/schemas/Extension'
       tags:
       - Extensions
+    delete:
+      operationId: Extensions_delete
+      summary: Delete an Extension
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
-          description: Deleted
+          description: There is no content to send for this request, but the headers may be useful.
+      tags:
+      - Extensions
 components:
+  schemas:
+    Extension:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        fileName:
+          type: string
+          minLength: 1
+        projectId:
+          description: The Project ID linked to the uploaded Extension.
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - fileName
+      - projectId
   securitySchemes:
-    ApiKeyAuth:
+    BrowserbaseAuth:
       type: apiKey
       in: header
       name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

@@ -1,0 +1,194 @@
+openapi: 3.2.0
+info:
+  title: Browserbase Downloads API
+  description: Browserbase API for 3rd party developers
+  version: v1
+servers:
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
+security:
+- BrowserbaseAuth: []
+tags:
+- name: Downloads
+paths:
+  /v1/downloads:
+    get:
+      operationId: Downloads_list
+      summary: List Downloads
+      description: List all downloads for a session with optional filtering and pagination.
+      parameters:
+      - name: sessionId
+        in: query
+        description: Filter downloads by session ID (required).
+        required: true
+        schema:
+          type: string
+      - name: filename
+        in: query
+        description: Filter by exact filename match.
+        required: false
+        schema:
+          type: string
+          maxLength: 255
+      - name: mimeType
+        in: query
+        description: Filter by MIME type.
+        required: false
+        schema:
+          type: string
+          maxLength: 255
+      - name: minSize
+        in: query
+        description: Minimum file size in bytes.
+        required: false
+        schema:
+          type: number
+          minimum: 0
+      - name: maxSize
+        in: query
+        description: Maximum file size in bytes.
+        required: false
+        schema:
+          type: number
+          minimum: 0
+      - name: createdAfter
+        in: query
+        description: Filter downloads created on or after this timestamp.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: createdBefore
+        in: query
+        description: Filter downloads created on or before this timestamp.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        description: Maximum number of results to return.
+        required: false
+        schema:
+          type: integer
+          default: 20
+          maximum: 100
+          minimum: 1
+      - name: offset
+        in: query
+        description: Number of results to skip for pagination.
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  downloads:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Download'
+                  total:
+                    description: Total count of matching downloads.
+                    type: integer
+                    minimum: 0
+                  limit:
+                    type: integer
+                  offset:
+                    type: integer
+                required:
+                - downloads
+                - total
+                - limit
+                - offset
+      tags:
+      - Downloads
+  /v1/downloads/{id}:
+    get:
+      operationId: Downloads_get
+      summary: Get a Download
+      description: 'Get download metadata (Accept: application/json) or file content (Accept: application/octet-stream).'
+      parameters:
+      - name: id
+        in: path
+        description: The download ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Download'
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+      tags:
+      - Downloads
+    delete:
+      operationId: Downloads_delete
+      summary: Delete a Download
+      description: Delete a download file from storage and mark as deleted.
+      parameters:
+      - name: id
+        in: path
+        description: The download ID to delete.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: There is no content to send for this request.
+      tags:
+      - Downloads
+components:
+  schemas:
+    Download:
+      type: object
+      properties:
+        id:
+          description: Unique identifier for the download.
+          type: string
+        sessionId:
+          description: The Session ID this download belongs to.
+          type: string
+        filename:
+          description: The filename of the downloaded file.
+          type: string
+        mimeType:
+          description: The MIME type of the file.
+          type: string
+        size:
+          description: File size in bytes.
+          type: number
+        checksum:
+          description: SHA256 checksum of the file.
+          type: string
+        createdAt:
+          description: Timestamp when the file was downloaded.
+          type: string
+          format: date-time
+      required:
+      - id
+      - sessionId
+      - filename
+      - mimeType
+      - size
+      - checksum
+      - createdAt
+  securitySchemes:
+    BrowserbaseAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).

@@ -1,0 +1,143 @@
+openapi: 3.2.0
+info:
+  title: Browserbase Search API
+  description: Browserbase API for 3rd party developers
+  version: v1
+servers:
+- url: https://api.browserbase.com
+  description: Public endpoint
+  variables: {}
+security:
+- BrowserbaseAuth: []
+tags:
+- name: Search
+paths:
+  /v1/search:
+    post:
+      operationId: Search_web
+      summary: Web Search
+      description: Perform a web search and return structured results.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  description: The search query string
+                  type: string
+                  maxLength: 200
+                  minLength: 1
+                numResults:
+                  description: Number of results to return (1-25)
+                  type: integer
+                  default: 10
+                  maximum: 25
+                  minimum: 1
+                provider:
+                  description: Search provider to serve this request. Omit to use the default provider for your project.
+                  default: parallel
+                  anyOf:
+                  - type: string
+                    enum:
+                    - parallel
+                  - type: string
+                    enum:
+                    - exa
+                mode:
+                  description: The search mode used by the underlying provider. [Search docs](https://docs.browserbase.com/platform/search/overview) for the available modes and defaults.
+                  anyOf:
+                  - type: string
+                    enum:
+                    - fast
+                  - type: string
+                    enum:
+                    - advanced
+              oneOf:
+              - type: object
+                properties:
+                  provider:
+                    type: string
+                    enum:
+                    - parallel
+                  mode:
+                    anyOf:
+                    - type: string
+                      enum:
+                      - fast
+                    - type: string
+                      enum:
+                      - advanced
+                required:
+                - provider
+              - not:
+                  required:
+                  - mode
+                type: object
+                properties:
+                  provider:
+                    type: string
+                    enum:
+                    - exa
+              required:
+              - query
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    description: Unique identifier for the request
+                    type: string
+                  query:
+                    description: The search query that was executed
+                    type: string
+                  results:
+                    description: List of search results
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          description: Unique identifier for the result
+                          type: string
+                        url:
+                          description: The URL of the search result
+                          type: string
+                        title:
+                          description: The title of the search result
+                          type: string
+                        author:
+                          description: Author of the content if available
+                          type: string
+                        publishedDate:
+                          description: Publication date in RFC 3339 format
+                          type: string
+                          format: date-time
+                        image:
+                          description: Image URL if available
+                          type: string
+                        favicon:
+                          description: Favicon URL
+                          type: string
+                      required:
+                      - id
+                      - url
+                      - title
+                required:
+                - requestId
+                - query
+                - results
+      tags:
+      - Search
+components:
+  securitySchemes:
+    BrowserbaseAuth:
+      type: apiKey
+      in: header
+      name: X-BB-API-Key
+      description: Your [Browserbase API Key](https://www.browserbase.com/settings).
