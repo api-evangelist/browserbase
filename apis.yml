@@ -353,6 +353,8 @@ apis:
   - type: OpenAPI
     url: openapi/browserbase-webhooks-api-openapi.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/browserbase/overview
   - type: Plans
     url: plans/browserbase-plans-pricing.yml
   - type: RateLimits
