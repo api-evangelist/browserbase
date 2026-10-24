@@ -1,305 +1,307 @@
 {
+  "info": {
+    "_postman_id": "69e4a0ce-ed23-4ef3-a3da-bcc09c50195a",
+    "name": "Browserbase Contexts API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:12.000Z",
+    "updatedAt": "2026-10-21T20:23:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69e4a0ce-ed23-4ef3-a3da-bcc09c50195a"
+  },
   "item": [
     {
-      "id": "15de71da-8169-4de5-a2f3-3bba251fdd8b",
-      "name": "Contexts",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v1",
       "item": [
         {
-          "id": "1d463bad-44e3-4f1a-b120-3bfa8a725354",
-          "name": "Create a context",
-          "request": {
-            "name": "Create a context",
-            "description": {},
-            "url": {
-              "path": [
-                "contexts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"projectId\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "contexts",
+          "item": [
             {
-              "id": "39351d05-0dc7-4035-948f-136ef77973fe",
-              "name": "Context created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "contexts"
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get a Context",
+                  "id": "953d0ed9-7e64-4ba4-b4d4-0d443ba13080",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/contexts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "contexts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e2923a74-0bf4-4b24-bf1b-aed33674531d",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "94cdfe26-8701-4e72-b5a4-333cfd44ca67",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/contexts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "contexts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"projectId\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:23:13.000Z",
+                      "updatedAt": "2026-10-21T20:23:13.000Z",
+                      "uid": "35240-94cdfe26-8701-4e72-b5a4-333cfd44ca67"
+                    }
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-953d0ed9-7e64-4ba4-b4d4-0d443ba13080"
                 },
+                {
+                  "name": "Delete a Context",
+                  "id": "8719ff65-7254-4675-bb38-a777b19a7536",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/contexts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "contexts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aac09d94-1b7f-4d9b-97d6-c00f919f9a6f",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "39e68507-15d4-49fb-b5f6-360adf89b197",
+                      "name": "There is no content to send for this request, but the headers may be useful.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/contexts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "contexts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:13.000Z",
+                      "updatedAt": "2026-10-21T20:23:13.000Z",
+                      "uid": "35240-39e68507-15d4-49fb-b5f6-360adf89b197"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-8719ff65-7254-4675-bb38-a777b19a7536"
+                }
+              ],
+              "id": "5e657c6d-0db0-420c-b040-a6e6b9453af1",
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-5e657c6d-0db0-420c-b040-a6e6b9453af1"
+            },
+            {
+              "name": "Create a Context",
+              "id": "48852247-c0f8-4b72-8cb0-5bef78643dd4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"projectId\": \"<string>\"\n}",
+                  "raw": "{\n  \"projectId\": \"<string>\",\n  \"name\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"uploadUrl\": \"https://sAhmzgUWegHHjMbEvZuPnFjoN.whC,,yyoJEzcGBQruMCjSoLxAfEDGPOARnAN,pxMUXOB.MZmnW4ffHtQ5JVMQqUJNk06u7DpPDbRoZM\",\n  \"publicKey\": \"string\",\n  \"cipherAlgorithm\": \"string\",\n  \"initializationVectorSize\": 6815\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "53b30c06-83d9-4d65-8943-525ff180e3b0",
-          "name": "Get a context",
-          "request": {
-            "name": "Get a context",
-            "description": {},
-            "url": {
-              "path": [
-                "contexts",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a9dbb4b1-a2ce-4c66-9907-d34ed612d125",
-              "name": "Context",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "contexts",
-                    ":id"
-                  ],
+                  "raw": "{{baseUrl}}/v1/contexts",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"uploadUrl\": \"https://sAhmzgUWegHHjMbEvZuPnFjoN.whC,,yyoJEzcGBQruMCjSoLxAfEDGPOARnAN,pxMUXOB.MZmnW4ffHtQ5JVMQqUJNk06u7DpPDbRoZM\",\n  \"publicKey\": \"string\",\n  \"cipherAlgorithm\": \"string\",\n  \"initializationVectorSize\": 6815\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6f44fab9-a66c-4ffd-983f-0d56165dc2d9",
-          "name": "Update a context",
-          "request": {
-            "name": "Update a context",
-            "description": {},
-            "url": {
-              "path": [
-                "contexts",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "245db5f0-c353-40dd-b0fe-6393808b7e7b",
-              "name": "Context updated",
-              "originalRequest": {
-                "url": {
                   "path": [
-                    "contexts",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
+                    "v1",
+                    "contexts"
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {}
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "9db03c09-61aa-4d50-aace-8218e462dd72",
+                  "name": "The request has succeeded and a new resource has been created as a result.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"projectId\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/contexts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "contexts"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"publicKey\": \"<string>\",\n  \"cipherAlgorithm\": \"<string>\",\n  \"initializationVectorSize\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:23:13.000Z",
+                  "updatedAt": "2026-10-21T20:23:13.000Z",
+                  "uid": "35240-9db03c09-61aa-4d50-aace-8218e462dd72"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"uploadUrl\": \"https://sAhmzgUWegHHjMbEvZuPnFjoN.whC,,yyoJEzcGBQruMCjSoLxAfEDGPOARnAN,pxMUXOB.MZmnW4ffHtQ5JVMQqUJNk06u7DpPDbRoZM\",\n  \"publicKey\": \"string\",\n  \"cipherAlgorithm\": \"string\",\n  \"initializationVectorSize\": 6815\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:23:13.000Z",
+              "updatedAt": "2026-10-21T20:23:13.000Z",
+              "uid": "35240-48852247-c0f8-4b72-8cb0-5bef78643dd4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "fdd740c0-6bcc-44b8-a0c3-40e546c5e7b5",
+          "createdAt": "2026-10-21T20:23:13.000Z",
+          "updatedAt": "2026-10-21T20:23:13.000Z",
+          "uid": "35240-fdd740c0-6bcc-44b8-a0c3-40e546c5e7b5"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.browserbase.com/v1",
-      "key": "baseUrl"
+      "id": "51688149-54d9-44c0-8283-25bb418d28d4",
+      "createdAt": "2026-10-21T20:23:13.000Z",
+      "updatedAt": "2026-10-21T20:23:13.000Z",
+      "uid": "35240-51688149-54d9-44c0-8283-25bb418d28d4"
     }
   ],
   "auth": {
@@ -307,25 +309,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-BB-API-Key"
+        "value": "X-BB-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a7b5570a-27ac-4833-87eb-5ebb70d995f6",
-    "name": "Browserbase Contexts API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.\n\nContact Support:\n Name: Browserbase",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
     }
-  }
+  ]
 }

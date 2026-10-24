@@ -1,301 +1,308 @@
 {
+  "info": {
+    "_postman_id": "97c3ed34-15e7-44a9-871e-320ccff36ff3",
+    "name": "Browserbase Extensions API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:19.000Z",
+    "updatedAt": "2026-10-21T20:23:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-97c3ed34-15e7-44a9-871e-320ccff36ff3"
+  },
   "item": [
     {
-      "id": "fbb73e95-f069-46fa-bdee-73a0357080de",
-      "name": "Extensions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v1",
       "item": [
         {
-          "id": "48a676b2-678e-4f78-907b-8710049e380d",
-          "name": "Upload an extension",
-          "request": {
-            "name": "Upload an extension",
-            "description": {},
-            "url": {
-              "path": [
-                "extensions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "file",
-                  "type": "file",
-                  "description": ""
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "extensions",
+          "item": [
             {
-              "id": "c8a68db9-e4c2-4dab-84b7-850e344ddd85",
-              "name": "Extension uploaded",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "extensions"
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get an Extension",
+                  "id": "1fb9b7c1-8d47-48cc-bfbe-e9f6bf72bc48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/extensions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "extensions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c79ac9f5-dd70-4cf3-b6f0-3374cfde4a22",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e164a006-d7fe-4806-8b55-baf7a613bf07",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/extensions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "extensions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"fileName\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-e164a006-d7fe-4806-8b55-baf7a613bf07"
+                    }
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-1fb9b7c1-8d47-48cc-bfbe-e9f6bf72bc48"
                 },
+                {
+                  "name": "Delete an Extension",
+                  "id": "917de44a-35bf-446e-9819-6ec0bfabecfd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/extensions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "extensions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3f60041d-ca66-4ce6-b1da-2f2a9e5231be",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "847034db-ead9-4baa-a129-3d7fc905a772",
+                      "name": "There is no content to send for this request, but the headers may be useful.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/extensions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "extensions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:19.000Z",
+                      "updatedAt": "2026-10-21T20:23:19.000Z",
+                      "uid": "35240-847034db-ead9-4baa-a129-3d7fc905a772"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-917de44a-35bf-446e-9819-6ec0bfabecfd"
+                }
+              ],
+              "id": "c779e1fd-5ceb-4cf3-b71e-27f818f87f00",
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-c779e1fd-5ceb-4cf3-b71e-27f818f87f00"
+            },
+            {
+              "name": "Upload an Extension",
+              "id": "d9134d0e-e390-47fb-8d98-215c99c4e12c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "file",
-                      "value": "<binary>",
-                      "type": "text"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "39b73f3f-0acd-4d68-b159-c1d20adcaed0",
-          "name": "Get an extension",
-          "request": {
-            "name": "Get an extension",
-            "description": {},
-            "url": {
-              "path": [
-                "extensions",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2d80db42-8cc7-4f71-a305-3efd6ee4847d",
-              "name": "Extension",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "extensions",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "type": "file",
+                      "value": null
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                "url": {
+                  "raw": "{{baseUrl}}/v1/extensions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "extensions"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7303c783-5672-40c6-9d65-1361be111c5d",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "file",
+                          "type": "file"
+                        }
+                      ]
                     },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/extensions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "extensions"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b1fe27b0-5490-4475-b1bc-5636ddad2829",
-          "name": "Delete an extension",
-          "request": {
-            "name": "Delete an extension",
-            "description": {},
-            "url": {
-              "path": [
-                "extensions",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e7336457-8ae9-41fc-ae77-24b305c8ac47",
-              "name": "Deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "extensions",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"fileName\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:19.000Z",
+                  "updatedAt": "2026-10-21T20:23:19.000Z",
+                  "uid": "35240-7303c783-5672-40c6-9d65-1361be111c5d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:23:19.000Z",
+              "updatedAt": "2026-10-21T20:23:19.000Z",
+              "uid": "35240-d9134d0e-e390-47fb-8d98-215c99c4e12c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "46d00c80-dd3e-42e8-add6-0982f98398ca",
+          "createdAt": "2026-10-21T20:23:19.000Z",
+          "updatedAt": "2026-10-21T20:23:19.000Z",
+          "uid": "35240-46d00c80-dd3e-42e8-add6-0982f98398ca"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.browserbase.com/v1",
-      "key": "baseUrl"
+      "id": "f238698b-749c-4844-be3e-a855f1de0adb",
+      "createdAt": "2026-10-21T20:23:19.000Z",
+      "updatedAt": "2026-10-21T20:23:19.000Z",
+      "uid": "35240-f238698b-749c-4844-be3e-a855f1de0adb"
     }
   ],
   "auth": {
@@ -303,25 +310,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-BB-API-Key"
+        "value": "X-BB-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b5816fee-cd45-4de0-9b32-21c600b8c233",
-    "name": "Browserbase Contexts Extensions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.\n\nContact Support:\n Name: Browserbase",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
     }
-  }
+  ]
 }

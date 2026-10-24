@@ -1,0 +1,2002 @@
+{
+  "info": {
+    "_postman_id": "378ebb9e-0ac1-4c9d-84b3-8edbb1fe5ba8",
+    "name": "Browserbase Functions API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:03.000Z",
+    "updatedAt": "2026-10-21T20:24:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-378ebb9e-0ac1-4c9d-84b3-8edbb1fe5ba8"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "functions",
+          "item": [
+            {
+              "name": "builds",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "Get Function Build Logs",
+                          "id": "cd6a238c-823e-420e-b5e7-09dc1b171fd1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/builds/:id/logs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "builds",
+                                ":id",
+                                "logs"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4a71c25b-1269-4d58-9c6b-da17ee7c5c8b",
+                                  "key": "id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "98681a18-5d16-4240-8d17-8c622099521f",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/builds/:id/logs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    "builds",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"logs\": [\n    {\n      \"message\": \"<string>\",\n      \"timestamp\": \"<number>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"timestamp\": \"<number>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-98681a18-5d16-4240-8d17-8c622099521f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-cd6a238c-823e-420e-b5e7-09dc1b171fd1"
+                        }
+                      ],
+                      "id": "c52bafbc-933b-4241-a8fd-5116453ce071",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-c52bafbc-933b-4241-a8fd-5116453ce071"
+                    },
+                    {
+                      "name": "Get a Function Build",
+                      "id": "7e204e0b-99a0-4e92-99fa-f7de4d06cf2e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/builds/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            "builds",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "57d7c94a-a618-4669-9b5b-a35b4fab0063",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d37f58ad-0632-4e22-9f3d-fce99ae1c1cf",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/builds/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "builds",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"projectId\": \"<uuid>\",\n  \"request\": {\n    \"entrypoint\": \"<string>\",\n    \"functionNames\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"status\": \"RUNNING\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"startedAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\",\n  \"builtFunctions\": [\n    {\n      \"createdAt\": \"<dateTime>\",\n      \"createdVersion\": {\n        \"id\": \"<uuid>\",\n        \"projectId\": \"<uuid>\",\n        \"functionId\": \"<uuid>\",\n        \"functionBuildId\": \"<uuid>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"sessionCreateParams\": {\n          \"nostrud_5be\": \"magna esse nisi dolor\",\n          \"occaecat_c\": true\n        },\n        \"userParamsSchema\": {\n          \"officia_fb8\": -52626989,\n          \"ea_e\": 58430155.82221681,\n          \"occaecat_5\": true,\n          \"quie4a\": -88236178\n        }\n      },\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"projectId\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"createdAt\": \"<dateTime>\",\n      \"createdVersion\": {\n        \"id\": \"<uuid>\",\n        \"projectId\": \"<uuid>\",\n        \"functionId\": \"<uuid>\",\n        \"functionBuildId\": \"<uuid>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"sessionCreateParams\": {\n          \"velit227\": 1431172.888949424,\n          \"fugiatc91\": true\n        },\n        \"userParamsSchema\": {\n          \"eta\": -26436502.24611704\n        }\n      },\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"projectId\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"cause\": {\n    \"code\": \"NO_MANIFESTS_FOUND\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-d37f58ad-0632-4e22-9f3d-fce99ae1c1cf"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-7e204e0b-99a0-4e92-99fa-f7de4d06cf2e"
+                    }
+                  ],
+                  "id": "3a35d3a1-f360-4079-9101-ab56c6458f3d",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-3a35d3a1-f360-4079-9101-ab56c6458f3d"
+                },
+                {
+                  "name": "List Function Builds",
+                  "id": "331364a6-a841-4ac3-85e0-08bb9df89b1f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/functions/builds?offset=0&limit=20&status=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "functions",
+                        "builds"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "key": "status",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "873041aa-c33d-4451-bebf-bd3d982992a7",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/builds?offset=0&limit=20&status=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            "builds"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "key": "status",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"request\": {\n        \"entrypoint\": \"<string>\",\n        \"functionNames\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"status\": \"FAILED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\",\n      \"builtFunctions\": [\n        {\n          \"createdAt\": \"<dateTime>\",\n          \"createdVersion\": {\n            \"id\": \"<uuid>\",\n            \"projectId\": \"<uuid>\",\n            \"functionId\": \"<uuid>\",\n            \"functionBuildId\": \"<uuid>\",\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"sessionCreateParams\": {\n              \"magna7f\": true,\n              \"mollitfe9\": true\n            },\n            \"userParamsSchema\": {\n              \"aliquip22f\": -56276679.50553641\n            }\n          },\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"projectId\": \"<uuid>\",\n          \"updatedAt\": \"<dateTime>\"\n        },\n        {\n          \"createdAt\": \"<dateTime>\",\n          \"createdVersion\": {\n            \"id\": \"<uuid>\",\n            \"projectId\": \"<uuid>\",\n            \"functionId\": \"<uuid>\",\n            \"functionBuildId\": \"<uuid>\",\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"sessionCreateParams\": {\n              \"magna__\": \"elit aliquip\",\n              \"ullamcoc\": -50948008.067200236\n            },\n            \"userParamsSchema\": {\n              \"officia__\": 4074240,\n              \"do_483\": 43852346.169513226\n            }\n          },\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"projectId\": \"<uuid>\",\n          \"updatedAt\": \"<dateTime>\"\n        }\n      ],\n      \"cause\": {\n        \"code\": \"MANIFEST_TOO_LARGE\",\n        \"message\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"request\": {\n        \"entrypoint\": \"<string>\",\n        \"functionNames\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"status\": \"FAILED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\",\n      \"builtFunctions\": [\n        {\n          \"createdAt\": \"<dateTime>\",\n          \"createdVersion\": {\n            \"id\": \"<uuid>\",\n            \"projectId\": \"<uuid>\",\n            \"functionId\": \"<uuid>\",\n            \"functionBuildId\": \"<uuid>\",\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"sessionCreateParams\": {\n              \"labore_d_8\": -5581534.050890997,\n              \"officia_f3\": -81218671.95532876,\n              \"ut_10b\": false\n            },\n            \"userParamsSchema\": {\n              \"sint9\": true\n            }\n          },\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"projectId\": \"<uuid>\",\n          \"updatedAt\": \"<dateTime>\"\n        },\n        {\n          \"createdAt\": \"<dateTime>\",\n          \"createdVersion\": {\n            \"id\": \"<uuid>\",\n            \"projectId\": \"<uuid>\",\n            \"functionId\": \"<uuid>\",\n            \"functionBuildId\": \"<uuid>\",\n            \"createdAt\": \"<dateTime>\",\n            \"updatedAt\": \"<dateTime>\",\n            \"sessionCreateParams\": {\n              \"elit1e\": \"Lorem do elit\"\n            },\n            \"userParamsSchema\": {\n              \"est_\": false,\n              \"Ut_a12\": -50875019.32941674\n            }\n          },\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"projectId\": \"<uuid>\",\n          \"updatedAt\": \"<dateTime>\"\n        }\n      ],\n      \"cause\": {\n        \"code\": \"NO_MANIFESTS_FOUND\",\n        \"message\": \"<string>\"\n      }\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-873041aa-c33d-4451-bebf-bd3d982992a7"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-331364a6-a841-4ac3-85e0-08bb9df89b1f"
+                }
+              ],
+              "id": "8ca0d491-38c4-44a8-b3d8-f49320df4e90",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-8ca0d491-38c4-44a8-b3d8-f49320df4e90"
+            },
+            {
+              "name": "invocations",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "Get Invocation Logs",
+                          "id": "f66a0ee4-0202-4bd1-8d4b-cef5bf8fc61a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/invocations/:id/logs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "invocations",
+                                ":id",
+                                "logs"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8799baeb-43fa-42de-a005-48693582719b",
+                                  "key": "id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "05c65c86-0637-4df8-8e62-b5177305786e",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/invocations/:id/logs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    "invocations",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"logs\": [\n    {\n      \"message\": \"<string>\",\n      \"timestamp\": \"<number>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"timestamp\": \"<number>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-05c65c86-0637-4df8-8e62-b5177305786e"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-f66a0ee4-0202-4bd1-8d4b-cef5bf8fc61a"
+                        }
+                      ],
+                      "id": "f4a2935c-d9c1-419c-bdc4-dd0f66bbb423",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-f4a2935c-d9c1-419c-bdc4-dd0f66bbb423"
+                    },
+                    {
+                      "name": "Get an Invocation",
+                      "id": "eb1291e8-b32b-4b5d-a827-97da5ce38f36",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/invocations/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            "invocations",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3e4f1015-bddd-4d88-8072-c224072eb36b",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d61b5799-cd94-4d71-84a3-43b070a0f1b4",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/invocations/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "invocations",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"projectId\": \"<uuid>\",\n  \"functionId\": \"<uuid>\",\n  \"versionId\": \"<uuid>\",\n  \"sessionId\": \"<uuid>\",\n  \"status\": \"RUNNING\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"startedAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"region\": \"<string>\",\n  \"params\": {\n    \"anim_3\": true,\n    \"sed_4b\": true,\n    \"nulla9_\": 8738300\n  },\n  \"results\": \"<string>\",\n  \"endedAt\": \"<dateTime>\",\n  \"cause\": {\n    \"code\": \"WORKLOAD_ERROR\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-d61b5799-cd94-4d71-84a3-43b070a0f1b4"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-eb1291e8-b32b-4b5d-a827-97da5ce38f36"
+                    }
+                  ],
+                  "id": "0e940c72-4354-4cf8-bae8-c607940f4fdf",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-0e940c72-4354-4cf8-bae8-c607940f4fdf"
+                }
+              ],
+              "id": "7863b398-d5a1-41ca-8e97-f933a3e77d9d",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-7863b398-d5a1-41ca-8e97-f933a3e77d9d"
+            },
+            {
+              "name": "versions",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "invocations",
+                      "item": [
+                        {
+                          "name": "List Invocations for a Function Version",
+                          "id": "2f5422c1-e7e7-4f9f-aa09-1ecc44f2dc77",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/versions/:id/invocations?offset=0&limit=20&status=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "versions",
+                                ":id",
+                                "invocations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "offset",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3f66b4de-10e5-48c3-92ad-4dcf1da92469",
+                                  "key": "id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0ecbcbdc-bff2-463e-942a-06bb9eee1278",
+                              "name": "The request has succeeded.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/versions/:id/invocations?offset=0&limit=20&status=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    "versions",
+                                    ":id",
+                                    "invocations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "offset",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "limit",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "key": "status",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"functionId\": \"<uuid>\",\n      \"versionId\": \"<uuid>\",\n      \"sessionId\": \"<uuid>\",\n      \"status\": \"FAILED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"region\": \"<string>\",\n      \"params\": {\n        \"consequat1_\": true,\n        \"nisi22\": 66523800.81944415,\n        \"nisi_fe\": -17837831.9536106\n      },\n      \"results\": \"<string>\",\n      \"endedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"functionId\": \"<uuid>\",\n      \"versionId\": \"<uuid>\",\n      \"sessionId\": \"<uuid>\",\n      \"status\": \"COMPLETED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"expiresAt\": \"<dateTime>\",\n      \"region\": \"<string>\",\n      \"params\": {\n        \"Duis_b\": 208067.97445613146\n      },\n      \"results\": \"<string>\",\n      \"endedAt\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-0ecbcbdc-bff2-463e-942a-06bb9eee1278"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-2f5422c1-e7e7-4f9f-aa09-1ecc44f2dc77"
+                        }
+                      ],
+                      "id": "09b8f0f9-fd61-4673-9ea9-5e3b1a3d146b",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-09b8f0f9-fd61-4673-9ea9-5e3b1a3d146b"
+                    },
+                    {
+                      "name": "Get a Function Version",
+                      "id": "7d22a494-ab80-4ccf-afa7-dc86c62bfd5f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/versions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            "versions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3b5084fd-858a-45e3-9985-e7a67591bf87",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2619254e-daf9-4a35-a72d-c46d462abf69",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/versions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                "versions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"projectId\": \"<uuid>\",\n  \"functionId\": \"<uuid>\",\n  \"functionBuildId\": \"<uuid>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sessionCreateParams\": {\n    \"fugiat_6\": 29608450.712030083\n  },\n  \"userParamsSchema\": {\n    \"occaecat67\": \"cupidatat nostrud occaecat\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-2619254e-daf9-4a35-a72d-c46d462abf69"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-7d22a494-ab80-4ccf-afa7-dc86c62bfd5f"
+                    }
+                  ],
+                  "id": "046c0839-0f2a-48db-9298-88959037d8b2",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-046c0839-0f2a-48db-9298-88959037d8b2"
+                }
+              ],
+              "id": "0ce76b51-6c2b-49a4-aa22-8f6f9703c822",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-0ce76b51-6c2b-49a4-aa22-8f6f9703c822"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "invoke",
+                  "item": [
+                    {
+                      "name": "Invoke a Function",
+                      "id": "68093920-431f-4f54-8c87-bea6043e2745",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"params\": {\n    \"reprehenderit_6d4\": -89070434.37748255,\n    \"exercitation106\": 42540178.12569609\n  },\n  \"sessionCreateParams\": {\n    \"extensionId\": \"<string>\",\n    \"browserSettings\": {\n      \"context\": {\n        \"id\": \"<string>\",\n        \"persist\": \"<boolean>\"\n      },\n      \"extensionId\": \"<string>\",\n      \"viewport\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\"\n      },\n      \"blockAds\": \"<boolean>\",\n      \"solveCaptchas\": \"<boolean>\",\n      \"recordSession\": \"<boolean>\",\n      \"logSession\": \"<boolean>\",\n      \"advancedStealth\": \"<boolean>\",\n      \"verified\": \"<boolean>\",\n      \"captchaImageSelector\": \"<string>\",\n      \"captchaInputSelector\": \"<string>\",\n      \"os\": \"mobile\",\n      \"size\": \"small\",\n      \"enableNativeSelectPolyfill\": \"<boolean>\",\n      \"enablePdfViewer\": \"<boolean>\",\n      \"ignoreCertificateErrors\": \"<boolean>\"\n    },\n    \"proxies\": [\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"uF\",\n          \"city\": \"<string>\",\n          \"state\": \"rs\"\n        },\n        \"domainPattern\": \"<string>\"\n      },\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"uT\",\n          \"city\": \"<string>\",\n          \"state\": \"Sb\"\n        },\n        \"domainPattern\": \"<string>\"\n      }\n    ],\n    \"proxySettings\": {},\n    \"userMetadata\": {\n      \"eiusmod_0bb\": -9347437\n    },\n    \"timeout\": 900\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/:id/invoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            ":id",
+                            "invoke"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dae29b60-2b24-437e-978a-6ad316e20694",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "faddbf8a-fe3b-4f00-9a8e-c8d503bb2953",
+                          "name": "The request has been accepted for processing, but processing has not yet completed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"params\": {\n    \"reprehenderit_6d4\": -89070434.37748255,\n    \"exercitation106\": 42540178.12569609\n  },\n  \"sessionCreateParams\": {\n    \"extensionId\": \"<string>\",\n    \"browserSettings\": {\n      \"context\": {\n        \"id\": \"<string>\",\n        \"persist\": \"<boolean>\"\n      },\n      \"extensionId\": \"<string>\",\n      \"viewport\": {\n        \"width\": \"<integer>\",\n        \"height\": \"<integer>\"\n      },\n      \"blockAds\": \"<boolean>\",\n      \"solveCaptchas\": \"<boolean>\",\n      \"recordSession\": \"<boolean>\",\n      \"logSession\": \"<boolean>\",\n      \"advancedStealth\": \"<boolean>\",\n      \"verified\": \"<boolean>\",\n      \"captchaImageSelector\": \"<string>\",\n      \"captchaInputSelector\": \"<string>\",\n      \"os\": \"mobile\",\n      \"size\": \"small\",\n      \"enableNativeSelectPolyfill\": \"<boolean>\",\n      \"enablePdfViewer\": \"<boolean>\",\n      \"ignoreCertificateErrors\": \"<boolean>\"\n    },\n    \"proxies\": [\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"uF\",\n          \"city\": \"<string>\",\n          \"state\": \"rs\"\n        },\n        \"domainPattern\": \"<string>\"\n      },\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"uT\",\n          \"city\": \"<string>\",\n          \"state\": \"Sb\"\n        },\n        \"domainPattern\": \"<string>\"\n      }\n    ],\n    \"proxySettings\": {},\n    \"userMetadata\": {\n      \"eiusmod_0bb\": -9347437\n    },\n    \"timeout\": 900\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/invoke",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "invoke"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"projectId\": \"<uuid>\",\n  \"functionId\": \"<uuid>\",\n  \"versionId\": \"<uuid>\",\n  \"sessionId\": \"<uuid>\",\n  \"status\": \"PENDING\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"startedAt\": \"<dateTime>\",\n  \"expiresAt\": \"<dateTime>\",\n  \"region\": \"<string>\",\n  \"params\": {\n    \"amet_b9\": 56576523,\n    \"ut32\": \"deserunt nostrud incididunt\",\n    \"in4\": \"ullamco inci\"\n  },\n  \"results\": \"<string>\",\n  \"endedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-faddbf8a-fe3b-4f00-9a8e-c8d503bb2953"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-68093920-431f-4f54-8c87-bea6043e2745"
+                    }
+                  ],
+                  "id": "de576f26-95e6-446b-9faf-7f78729d4ab0",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-de576f26-95e6-446b-9faf-7f78729d4ab0"
+                },
+                {
+                  "name": "secrets",
+                  "item": [
+                    {
+                      "name": "{secretId}",
+                      "item": [
+                        {
+                          "name": "Detach a Secret from a Function",
+                          "id": "3fb7c3b9-dd65-48f3-bfbd-e93623d11406",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets/:secretId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets",
+                                ":secretId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a4003a0c-9e55-49d3-973e-6ce8b86a66ad",
+                                  "key": "id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "24d510f9-9e20-43c6-952b-93afc1df5ba4",
+                                  "key": "secretId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Detach a secret from a Function, taking effect on the Function's next invocation. Note: Detaching a secret that is not attached succeeds to support idempotency."
+                          },
+                          "response": [
+                            {
+                              "id": "8812f1e8-a0f8-4ccd-a3ee-13696774aa31",
+                              "name": "The secret was detached from the function.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/:id/secrets/:secretId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    ":id",
+                                    "secrets",
+                                    ":secretId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "secretId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-8812f1e8-a0f8-4ccd-a3ee-13696774aa31"
+                            },
+                            {
+                              "id": "40206226-bb03-4087-b390-2527f8df7bb5",
+                              "name": "Invalid request. The Function ID and secret ID must be UUIDs.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/:id/secrets/:secretId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    ":id",
+                                    "secrets",
+                                    ":secretId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "secretId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-40206226-bb03-4087-b390-2527f8df7bb5"
+                            },
+                            {
+                              "id": "391f625b-48b4-4334-9853-f834f910c1b7",
+                              "name": "The Function does not exist in the project. Detaching a secret that is not attached succeeds.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/functions/:id/secrets/:secretId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "functions",
+                                    ":id",
+                                    "secrets",
+                                    ":secretId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "secretId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:24:04.000Z",
+                              "updatedAt": "2026-10-21T20:24:04.000Z",
+                              "uid": "35240-391f625b-48b4-4334-9853-f834f910c1b7"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-3fb7c3b9-dd65-48f3-bfbd-e93623d11406"
+                        }
+                      ],
+                      "id": "9a1b13eb-620a-4352-8792-84ebfd402097",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-9a1b13eb-620a-4352-8792-84ebfd402097"
+                    },
+                    {
+                      "name": "List Function Secrets",
+                      "id": "dcc07de4-126e-4c93-a15c-7aa5126581b8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/:id/secrets?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            ":id",
+                            "secrets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Only return secrets created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                              "key": "startAt",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Only return secrets created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                              "key": "endAt",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of results to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Keep the same filters across pages. Omit to start from the first page.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "97702885-2afc-4d90-89cd-b4edc15e8457",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "List secrets attached to a function. Supports filtering by secret creation time. Returns metadata only."
+                      },
+                      "response": [
+                        {
+                          "id": "9e5ea99f-5a0c-4f7f-8942-4135d8bffce2",
+                          "name": "The page of matching secrets.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Only return secrets created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                                  "key": "startAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Only return secrets created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                                  "key": "endAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return.",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Keep the same filters across pages. Omit to start from the first page.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"secretKey\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"secretKey\": \"<string>\"\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"nextCursor\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-9e5ea99f-5a0c-4f7f-8942-4135d8bffce2"
+                        },
+                        {
+                          "id": "e7c5c0fe-5cdf-4e7b-bc66-11af5488506b",
+                          "name": "Invalid Function ID, query parameters, or cursor, or startAt is after endAt.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Only return secrets created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                                  "key": "startAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Only return secrets created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                                  "key": "endAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return.",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Keep the same filters across pages. Omit to start from the first page.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-e7c5c0fe-5cdf-4e7b-bc66-11af5488506b"
+                        },
+                        {
+                          "id": "ef6f34aa-78bc-4d3d-a2ca-c99e148331f8",
+                          "name": "The Function does not exist in the project.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Only return secrets created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                                  "key": "startAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Only return secrets created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                                  "key": "endAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return.",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Keep the same filters across pages. Omit to start from the first page.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-ef6f34aa-78bc-4d3d-a2ca-c99e148331f8"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-dcc07de4-126e-4c93-a15c-7aa5126581b8"
+                    },
+                    {
+                      "name": "Attach a Secret to a Function",
+                      "id": "13463e86-bc12-4cec-9521-c1ba03ad3c1c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"secretId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/:id/secrets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            ":id",
+                            "secrets"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ac649aca-2d24-4d48-afa2-138de7e024ef",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Attach a secret to a Function, taking effect on the Function's next invocation. Note: Attaching a secret that is already attached succeeds to support idempotency."
+                      },
+                      "response": [
+                        {
+                          "id": "096c2380-2271-4b67-a528-1a82014a6fb2",
+                          "name": "The secret was attached to the function.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"secretId\": \"<uuid>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-096c2380-2271-4b67-a528-1a82014a6fb2"
+                        },
+                        {
+                          "id": "f38b2a96-1e2e-44e0-804c-e67f72132ec8",
+                          "name": "Invalid request. The Function ID and secret ID must be UUIDs.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"secretId\": \"<uuid>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-f38b2a96-1e2e-44e0-804c-e67f72132ec8"
+                        },
+                        {
+                          "id": "04615c3f-c6f3-4673-9ef7-0dadb2212435",
+                          "name": "The Function or secret does not exist in the project.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"secretId\": \"<uuid>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/secrets",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "secrets"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-04615c3f-c6f3-4673-9ef7-0dadb2212435"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-13463e86-bc12-4cec-9521-c1ba03ad3c1c"
+                    }
+                  ],
+                  "id": "5ee26910-63b3-423b-9ba2-67fbcea38f76",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-5ee26910-63b3-423b-9ba2-67fbcea38f76"
+                },
+                {
+                  "name": "versions",
+                  "item": [
+                    {
+                      "name": "List Function Versions",
+                      "id": "a90814cf-9440-437c-914c-a3eae21f7f9a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/:id/versions?offset=0&limit=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            ":id",
+                            "versions"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "20"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "78eaf9b9-6742-4991-99c3-aec9d57193c8",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "72d53627-e397-45dd-854d-64fd9e6c4fe1",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/functions/:id/versions?offset=0&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "functions",
+                                ":id",
+                                "versions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "offset",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"functionId\": \"<uuid>\",\n      \"functionBuildId\": \"<uuid>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"sessionCreateParams\": {\n        \"cillum_84a\": 70287961.45069703,\n        \"irure7b\": 4295027\n      },\n      \"userParamsSchema\": {\n        \"deserunt_6\": 74295542.00369054,\n        \"et8b\": 15627746.065929532,\n        \"reprehenderitf5\": -3267258.268468559,\n        \"Duis_0e\": -98007718\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"functionId\": \"<uuid>\",\n      \"functionBuildId\": \"<uuid>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"sessionCreateParams\": {\n        \"fugiateb\": \"dolor laborum nisi\",\n        \"minim_4_3\": false,\n        \"dolore4\": false,\n        \"in2\": -19149343.983149067\n      },\n      \"userParamsSchema\": {\n        \"aute_7b\": \"est non amet\",\n        \"pariatur_e47\": \"occaecat est dolor\",\n        \"nostrud9f\": \"reprehenderit dolor p\",\n        \"consectetur619\": 11646146.370452687\n      }\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-21T20:24:04.000Z",
+                          "updatedAt": "2026-10-21T20:24:04.000Z",
+                          "uid": "35240-72d53627-e397-45dd-854d-64fd9e6c4fe1"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-a90814cf-9440-437c-914c-a3eae21f7f9a"
+                    }
+                  ],
+                  "id": "cfd7d947-5314-4198-9438-89b81c18cf24",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-cfd7d947-5314-4198-9438-89b81c18cf24"
+                },
+                {
+                  "name": "Get a Function",
+                  "id": "3b9a1bf2-dedf-4da3-a440-b5d494e90da3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/functions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "functions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cb1d68b0-1f07-4604-bb42-deb27f3124e9",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e2da378a-8bad-45eb-93d4-1b7104f2c06a",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/functions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "functions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"projectId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:24:04.000Z",
+                      "updatedAt": "2026-10-21T20:24:04.000Z",
+                      "uid": "35240-e2da378a-8bad-45eb-93d4-1b7104f2c06a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-3b9a1bf2-dedf-4da3-a440-b5d494e90da3"
+                }
+              ],
+              "id": "12c415a9-9c36-4a75-98fa-7f5bfa1123c7",
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-12c415a9-9c36-4a75-98fa-7f5bfa1123c7"
+            },
+            {
+              "name": "List Functions",
+              "id": "ce8f1e2b-46bc-47d8-b869-92f201e936da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/functions?offset=0&limit=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "functions"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3e0ded7b-51e9-4ddf-a991-1e2d460b7d61",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/functions?offset=0&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "functions"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"projectId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:24:04.000Z",
+                  "updatedAt": "2026-10-21T20:24:04.000Z",
+                  "uid": "35240-3e0ded7b-51e9-4ddf-a991-1e2d460b7d61"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:04.000Z",
+              "updatedAt": "2026-10-21T20:24:04.000Z",
+              "uid": "35240-ce8f1e2b-46bc-47d8-b869-92f201e936da"
+            }
+          ],
+          "id": "db7d6d77-2ae5-46f4-960b-5feb8523b838",
+          "createdAt": "2026-10-21T20:24:04.000Z",
+          "updatedAt": "2026-10-21T20:24:04.000Z",
+          "uid": "35240-db7d6d77-2ae5-46f4-960b-5feb8523b838"
+        }
+      ],
+      "id": "742060e1-77cd-4919-944e-6f8138726938",
+      "createdAt": "2026-10-21T20:24:04.000Z",
+      "updatedAt": "2026-10-21T20:24:04.000Z",
+      "uid": "35240-742060e1-77cd-4919-944e-6f8138726938"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
+    }
+  ]
+}

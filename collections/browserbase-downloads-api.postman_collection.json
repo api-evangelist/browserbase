@@ -1,0 +1,402 @@
+{
+  "info": {
+    "_postman_id": "a9601f00-874b-47ed-ac2f-98c614d7928c",
+    "name": "Browserbase Downloads API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:50.000Z",
+    "updatedAt": "2026-10-21T20:23:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a9601f00-874b-47ed-ac2f-98c614d7928c"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "downloads",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get a Download",
+                  "id": "7686ec83-f5b9-43f1-afeb-523efcebec91",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/downloads/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "downloads",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "99650a90-c6f8-4717-9360-0e6d4bcdb895",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The download ID."
+                        }
+                      ]
+                    },
+                    "description": "Get download metadata (Accept: application/json) or file content (Accept: application/octet-stream)."
+                  },
+                  "response": [
+                    {
+                      "id": "b19048df-e248-4669-9119-05ad00918e86",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/downloads/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "downloads",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"filename\": \"<string>\",\n  \"mimeType\": \"<string>\",\n  \"size\": \"<number>\",\n  \"checksum\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:23:51.000Z",
+                      "updatedAt": "2026-10-21T20:23:51.000Z",
+                      "uid": "35240-b19048df-e248-4669-9119-05ad00918e86"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:51.000Z",
+                  "updatedAt": "2026-10-21T20:23:51.000Z",
+                  "uid": "35240-7686ec83-f5b9-43f1-afeb-523efcebec91"
+                },
+                {
+                  "name": "Delete a Download",
+                  "id": "ff5c13c7-0786-40c7-b8f9-66eb4e3d5c8c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/downloads/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "downloads",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "08f5de63-fd5b-4379-bfb8-421403f769cd",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The download ID to delete."
+                        }
+                      ]
+                    },
+                    "description": "Delete a download file from storage and mark as deleted."
+                  },
+                  "response": [
+                    {
+                      "id": "d526ba0b-7fac-41c0-a2b1-e965046a943a",
+                      "name": "There is no content to send for this request.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/downloads/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "downloads",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:51.000Z",
+                      "updatedAt": "2026-10-21T20:23:51.000Z",
+                      "uid": "35240-d526ba0b-7fac-41c0-a2b1-e965046a943a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:51.000Z",
+                  "updatedAt": "2026-10-21T20:23:51.000Z",
+                  "uid": "35240-ff5c13c7-0786-40c7-b8f9-66eb4e3d5c8c"
+                }
+              ],
+              "id": "431b5f78-b2b1-4c22-8350-c769278af20a",
+              "createdAt": "2026-10-21T20:23:50.000Z",
+              "updatedAt": "2026-10-21T20:23:50.000Z",
+              "uid": "35240-431b5f78-b2b1-4c22-8350-c769278af20a"
+            },
+            {
+              "name": "List Downloads",
+              "id": "65086ea3-aafb-4b7e-af9b-8553e5168e02",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/downloads?sessionId=<string>&filename=<string>&mimeType=<string>&minSize=<number>&maxSize=<number>&createdAfter=<dateTime>&createdBefore=<dateTime>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "downloads"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Filter downloads by session ID (required).",
+                      "key": "sessionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exact filename match.",
+                      "key": "filename",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by MIME type.",
+                      "key": "mimeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum file size in bytes.",
+                      "key": "minSize",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Maximum file size in bytes.",
+                      "key": "maxSize",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Filter downloads created on or after this timestamp.",
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter downloads created on or before this timestamp.",
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                },
+                "description": "List all downloads for a session with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "0ac08301-260f-47f0-87f7-e9232dfedcfa",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/downloads?sessionId=<string>&filename=<string>&mimeType=<string>&minSize=<number>&maxSize=<number>&createdAfter=<dateTime>&createdBefore=<dateTime>&limit=20&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "downloads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Filter downloads by session ID (required).",
+                          "key": "sessionId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exact filename match.",
+                          "key": "filename",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by MIME type.",
+                          "key": "mimeType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum file size in bytes.",
+                          "key": "minSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum file size in bytes.",
+                          "key": "maxSize",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Filter downloads created on or after this timestamp.",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter downloads created on or before this timestamp.",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Number of results to skip for pagination.",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"downloads\": [\n    {\n      \"id\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"filename\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"size\": \"<number>\",\n      \"checksum\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"filename\": \"<string>\",\n      \"mimeType\": \"<string>\",\n      \"size\": \"<number>\",\n      \"checksum\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:23:51.000Z",
+                  "updatedAt": "2026-10-21T20:23:51.000Z",
+                  "uid": "35240-0ac08301-260f-47f0-87f7-e9232dfedcfa"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:51.000Z",
+              "updatedAt": "2026-10-21T20:23:51.000Z",
+              "uid": "35240-65086ea3-aafb-4b7e-af9b-8553e5168e02"
+            }
+          ],
+          "id": "641dd988-d626-4b28-bfb7-a4af461da61f",
+          "createdAt": "2026-10-21T20:23:50.000Z",
+          "updatedAt": "2026-10-21T20:23:50.000Z",
+          "uid": "35240-641dd988-d626-4b28-bfb7-a4af461da61f"
+        }
+      ],
+      "id": "852c1bac-4fe1-4427-b5f1-c164dc4db22d",
+      "createdAt": "2026-10-21T20:23:50.000Z",
+      "updatedAt": "2026-10-21T20:23:50.000Z",
+      "uid": "35240-852c1bac-4fe1-4427-b5f1-c164dc4db22d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
+    }
+  ]
+}

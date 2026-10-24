@@ -1,0 +1,560 @@
+{
+  "info": {
+    "_postman_id": "be8957d2-7369-42c9-815b-dd0c4c81e506",
+    "name": "Browserbase Fetch API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:56.000Z",
+    "updatedAt": "2026-10-21T20:23:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-be8957d2-7369-42c9-815b-dd0c4c81e506"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "fetch",
+          "item": [
+            {
+              "name": "Fetch a Page",
+              "id": "47ed717b-dcf7-4693-8155-707abbd95a2a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/fetch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "fetch"
+                  ]
+                },
+                "description": "Fetch a page and return its content, headers, and metadata."
+              },
+              "response": [
+                {
+                  "id": "ff57d703-ca27-46f5-bc36-35ee2eb01e6c",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"deserunt6f\": \"<string>\",\n    \"exf\": \"<string>\"\n  },\n  \"content\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"encoding\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-ff57d703-ca27-46f5-bc36-35ee2eb01e6c"
+                },
+                {
+                  "id": "0af09091-f09a-4223-88b7-64fc941edd86",
+                  "name": "Invalid request body, or the requested `format` is not supported for the fetched response's content type.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-0af09091-f09a-4223-88b7-64fc941edd86"
+                },
+                {
+                  "id": "4b7ee170-813f-4632-baa3-590a86b491f9",
+                  "name": "Free plan quota exceeded for the requested format.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Payment Required",
+                  "code": 402,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"description\": \"Free plan quota exceeded for the requested format.\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-4b7ee170-813f-4632-baa3-590a86b491f9"
+                },
+                {
+                  "id": "5e3675e3-c0a6-4e34-8dce-10dfc6eb7105",
+                  "name": "Access to the requested resource is forbidden.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"description\": \"Access to the requested resource is forbidden.\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-5e3675e3-c0a6-4e34-8dce-10dfc6eb7105"
+                },
+                {
+                  "id": "529e058a-d546-4391-b818-5f372345bfe6",
+                  "name": "Concurrent fetch request limit exceeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-529e058a-d546-4391-b818-5f372345bfe6"
+                },
+                {
+                  "id": "c0843d4c-1535-40c2-8c16-32ca83fa7f0a",
+                  "name": "The fetched response was too large or TLS certificate verification failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Bad Gateway",
+                  "code": 502,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-c0843d4c-1535-40c2-8c16-32ca83fa7f0a"
+                },
+                {
+                  "id": "c2705864-b6f5-460d-a90b-7ae01cd445cc",
+                  "name": "The fetch service is temporarily unavailable.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-c2705864-b6f5-460d-a90b-7ae01cd445cc"
+                },
+                {
+                  "id": "f35f2991-2ee0-42d6-be6e-c757ffc2d517",
+                  "name": "The fetch request timed out.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"url\": \"<uri>\",\n  \"allowRedirects\": false,\n  \"allowInsecureSsl\": false,\n  \"proxies\": false,\n  \"format\": \"raw\",\n  \"schema\": {\n    \"adipisicingc\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/fetch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "fetch"
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"statusCode\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:57.000Z",
+                  "updatedAt": "2026-10-21T20:23:57.000Z",
+                  "uid": "35240-f35f2991-2ee0-42d6-be6e-c757ffc2d517"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:57.000Z",
+              "updatedAt": "2026-10-21T20:23:57.000Z",
+              "uid": "35240-47ed717b-dcf7-4693-8155-707abbd95a2a"
+            }
+          ],
+          "id": "56b29b64-26f3-4025-88b0-af8237fea78a",
+          "createdAt": "2026-10-21T20:23:57.000Z",
+          "updatedAt": "2026-10-21T20:23:57.000Z",
+          "uid": "35240-56b29b64-26f3-4025-88b0-af8237fea78a"
+        }
+      ],
+      "id": "60f14250-bd3d-479b-81d6-d7430a28e515",
+      "createdAt": "2026-10-21T20:23:57.000Z",
+      "updatedAt": "2026-10-21T20:23:57.000Z",
+      "uid": "35240-60f14250-bd3d-479b-81d6-d7430a28e515"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
+    }
+  ]
+}

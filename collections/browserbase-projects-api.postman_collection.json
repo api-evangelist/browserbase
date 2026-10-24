@@ -1,286 +1,304 @@
 {
+  "info": {
+    "_postman_id": "93057eb7-3073-4219-bc4c-59cf263d6c87",
+    "name": "Browserbase Projects API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:25.000Z",
+    "updatedAt": "2026-10-21T20:23:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-93057eb7-3073-4219-bc4c-59cf263d6c87"
+  },
   "item": [
     {
-      "id": "0f0041b8-46f0-4b60-bbc9-575d1fbc9901",
-      "name": "Projects",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v1",
       "item": [
         {
-          "id": "19b77f3b-e927-4519-be20-5c4c7ab5b15c",
-          "name": "List projects",
-          "request": {
-            "name": "List projects",
-            "description": {},
-            "url": {
-              "path": [
-                "projects"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "projects",
+          "item": [
             {
-              "id": "d4ff5fd2-0442-45b4-b288-c33772f1a2a6",
-              "name": "Projects",
-              "originalRequest": {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "usage",
+                  "item": [
+                    {
+                      "name": "Get Project Usage",
+                      "id": "adc5c3a2-90fb-4814-8c31-7291815ce3a2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:id/usage",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":id",
+                            "usage"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cebd9f99-be0e-413f-ae1f-71b0f0615e63",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "069321b2-078a-4a31-bb1e-5af2145d0248",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:id/usage",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":id",
+                                "usage"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"browserMinutes\": \"<integer>\",\n  \"proxyBytes\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-21T20:23:26.000Z",
+                          "updatedAt": "2026-10-21T20:23:26.000Z",
+                          "uid": "35240-069321b2-078a-4a31-bb1e-5af2145d0248"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:23:26.000Z",
+                      "updatedAt": "2026-10-21T20:23:26.000Z",
+                      "uid": "35240-adc5c3a2-90fb-4814-8c31-7291815ce3a2"
+                    }
+                  ],
+                  "id": "bbc50003-bf51-4ca1-b971-c76697163266",
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-bbc50003-bf51-4ca1-b971-c76697163266"
+                },
+                {
+                  "name": "Get a Project",
+                  "id": "6c905558-1785-413a-bfd4-a84f407ca8cc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/projects/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "projects",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7dbc7bee-7cda-4cbc-bba9-9e773f66992d",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6bd79d72-b6e5-430a-9834-e33514bfa591",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"defaultTimeout\": \"<integer>\",\n  \"concurrency\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:23:26.000Z",
+                      "updatedAt": "2026-10-21T20:23:26.000Z",
+                      "uid": "35240-6bd79d72-b6e5-430a-9834-e33514bfa591"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-6c905558-1785-413a-bfd4-a84f407ca8cc"
+                }
+              ],
+              "id": "bb7a3d8f-7b02-4314-92a3-89b4c9584f16",
+              "createdAt": "2026-10-21T20:23:26.000Z",
+              "updatedAt": "2026-10-21T20:23:26.000Z",
+              "uid": "35240-bb7a3d8f-7b02-4314-92a3-89b4c9584f16"
+            },
+            {
+              "name": "List Projects",
+              "id": "e49fc775-2644-4b2d-9a0a-83e99cdb058f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/v1/projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
+                    "v1",
                     "projects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"ownerId\": \"string\",\n    \"defaultTimeout\": 3353,\n    \"concurrency\": 8369,\n    \"createdAt\": \"1978-09-01T18:58:18.695Z\",\n    \"updatedAt\": \"1964-10-30T19:39:33.589Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"ownerId\": \"string\",\n    \"defaultTimeout\": 2317,\n    \"concurrency\": 1216,\n    \"createdAt\": \"1954-06-04T18:44:17.777Z\",\n    \"updatedAt\": \"2001-12-18T10:52:36.859Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "71e6a155-e046-4a8d-a9a6-e5cbe58bfa04",
-          "name": "Get a project",
-          "request": {
-            "name": "Get a project",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7bfd1f5a-bbf9-4628-8565-1545bc5a7afb",
-              "name": "Project",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"ownerId\": \"string\",\n  \"defaultTimeout\": 2016,\n  \"concurrency\": 3241,\n  \"createdAt\": \"1997-08-01T07:50:59.213Z\",\n  \"updatedAt\": \"1949-12-21T14:03:29.240Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "761a2952-dd35-4513-88a4-853d0a2e490e",
-          "name": "Get project usage",
-          "request": {
-            "name": "Get project usage",
-            "description": {},
-            "url": {
-              "path": [
-                "projects",
-                ":id",
-                "usage"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f0a3b1c0-39b7-42aa-baed-220d95263b49",
-              "name": "Usage",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":id",
-                    "usage"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                  "id": "72b475f2-abbb-4926-a28c-9bf1da3e7863",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/projects",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "projects"
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-BB-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"defaultTimeout\": \"<integer>\",\n    \"concurrency\": \"<integer>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"defaultTimeout\": \"<integer>\",\n    \"concurrency\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-10-21T20:23:26.000Z",
+                  "updatedAt": "2026-10-21T20:23:26.000Z",
+                  "uid": "35240-72b475f2-abbb-4926-a28c-9bf1da3e7863"
                 }
               ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:23:26.000Z",
+              "updatedAt": "2026-10-21T20:23:26.000Z",
+              "uid": "35240-e49fc775-2644-4b2d-9a0a-83e99cdb058f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "219473d0-7c57-477b-bb20-e200d52f9907",
+          "createdAt": "2026-10-21T20:23:26.000Z",
+          "updatedAt": "2026-10-21T20:23:26.000Z",
+          "uid": "35240-219473d0-7c57-477b-bb20-e200d52f9907"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.browserbase.com/v1",
-      "key": "baseUrl"
+      "id": "a68292e8-1d8d-46f8-91cf-15ce4e201585",
+      "createdAt": "2026-10-21T20:23:26.000Z",
+      "updatedAt": "2026-10-21T20:23:26.000Z",
+      "uid": "35240-a68292e8-1d8d-46f8-91cf-15ce4e201585"
     }
   ],
   "auth": {
@@ -288,25 +306,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-BB-API-Key"
+        "value": "X-BB-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "323de973-5851-43de-a64e-7440159eda2b",
-    "name": "Browserbase Contexts Projects API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Browserbase exposes managed headless Chromium browser sessions, contexts, projects, recordings, logs, and downloads for AI agents and web automation. Requests authenticate via the X-BB-API-Key header.\n\nContact Support:\n Name: Browserbase",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
     }
-  }
+  ]
 }

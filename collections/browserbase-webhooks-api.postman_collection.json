@@ -1,0 +1,746 @@
+{
+  "info": {
+    "_postman_id": "e3ca9501-6ca1-41c9-b40c-840b73f09b10",
+    "name": "Browserbase Webhooks API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:20.000Z",
+    "updatedAt": "2026-10-21T20:24:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e3ca9501-6ca1-41c9-b40c-840b73f09b10"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "webhooks",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "secret",
+                  "item": [
+                    {
+                      "name": "Rotate a Webhook signing secret",
+                      "id": "cf2dbba0-22bd-45f1-8e25-963a80e13580",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"revokeImmediately\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/webhooks/:id/secret",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "webhooks",
+                            ":id",
+                            "secret"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f45bba0e-3473-4cae-a142-67228df5fd13",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) The webhook ID."
+                            }
+                          ]
+                        },
+                        "description": "Issue a new signing secret for a webhook. By default the previous secret keeps verifying for 24 hours so a receiver can be updated without dropping deliveries; pass `revokeImmediately` to end that window at once. The new secret is returned only here."
+                      },
+                      "response": [
+                        {
+                          "id": "93ed5f07-c27c-4b1a-9af7-c412d60839f5",
+                          "name": "The new signing secret.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"revokeImmediately\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/webhooks/:id/secret",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "webhooks",
+                                ":id",
+                                "secret"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"secret\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:24:21.000Z",
+                          "updatedAt": "2026-10-21T20:24:21.000Z",
+                          "uid": "35240-93ed5f07-c27c-4b1a-9af7-c412d60839f5"
+                        },
+                        {
+                          "id": "cbef9dea-c082-455f-a34a-4e963f1ee5c4",
+                          "name": "Too many previous secrets are still inside their grace window. Wait for one to expire, or retry with `revokeImmediately`.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"revokeImmediately\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/webhooks/:id/secret",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "webhooks",
+                                ":id",
+                                "secret"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"description\": \"Too many previous secrets are still inside their grace window. Wait for one to expire, or retry with `revokeImmediately`.\"\n}",
+                          "createdAt": "2026-10-21T20:24:21.000Z",
+                          "updatedAt": "2026-10-21T20:24:21.000Z",
+                          "uid": "35240-cbef9dea-c082-455f-a34a-4e963f1ee5c4"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-cf2dbba0-22bd-45f1-8e25-963a80e13580"
+                    }
+                  ],
+                  "id": "e8f73120-bfc9-4da5-b55b-3eacbf9ecbcf",
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-e8f73120-bfc9-4da5-b55b-3eacbf9ecbcf"
+                },
+                {
+                  "name": "Get a Webhook",
+                  "id": "01eae1b4-e80f-42a8-a33d-ea4db11b3258",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/webhooks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "webhooks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6c178ddc-1f72-4903-bf56-1bbddbb93822",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) The webhook ID."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a single webhook by ID. The signing secret is not included; it is only ever returned on create and rotate."
+                  },
+                  "response": [
+                    {
+                      "id": "d3cd2640-600d-47a7-98d9-509db7cdb8ff",
+                      "name": "The webhook.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"endpoint\": \"https://pE'TA15Xt\",\n  \"eventTypes\": [\n    \"functions.builds.failed\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-d3cd2640-600d-47a7-98d9-509db7cdb8ff"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-01eae1b4-e80f-42a8-a33d-ea4db11b3258"
+                },
+                {
+                  "name": "Update a Webhook",
+                  "id": "7f0a99c6-f613-4f25-825a-77dd2b70be5e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"endpoint\": \"https://Qh,$5J'\\\"R\",\n  \"eventTypes\": [\n    \"functions.invocations.pending\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/webhooks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "webhooks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c1bee075-191b-47a7-872f-b32f3254d8e2",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) The webhook ID."
+                        }
+                      ]
+                    },
+                    "description": "Update a webhook's endpoint URL, its subscribed event types, or both. Omitted fields are left unchanged. `eventTypes` replaces the existing subscription rather than adding to it. The signing secret is unaffected."
+                  },
+                  "response": [
+                    {
+                      "id": "35ecb482-631a-45dd-9ad5-37143e76986d",
+                      "name": "The webhook after the update.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"endpoint\": \"https://Qh,$5J'\\\"R\",\n  \"eventTypes\": [\n    \"functions.invocations.pending\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"endpoint\": \"https://pE'TA15Xt\",\n  \"eventTypes\": [\n    \"functions.builds.failed\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-35ecb482-631a-45dd-9ad5-37143e76986d"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-7f0a99c6-f613-4f25-825a-77dd2b70be5e"
+                },
+                {
+                  "name": "Delete a Webhook",
+                  "id": "fcbde617-fdca-415f-8217-8def4bc2a8c0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/webhooks/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "webhooks",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f7fb9994-0ddc-416d-9810-9ef3632e80df",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) The webhook ID."
+                        }
+                      ]
+                    },
+                    "description": "Delete a webhook. Deliveries stop immediately and the signing secret is retired. Events that occurred before the delete are not replayed if the endpoint is registered again."
+                  },
+                  "response": [
+                    {
+                      "id": "5a324dd1-32b5-411e-a382-f2332c26ecc5",
+                      "name": "The webhook has been deleted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/webhooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "webhooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:24:21.000Z",
+                      "updatedAt": "2026-10-21T20:24:21.000Z",
+                      "uid": "35240-5a324dd1-32b5-411e-a382-f2332c26ecc5"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-fcbde617-fdca-415f-8217-8def4bc2a8c0"
+                }
+              ],
+              "id": "b4859c87-b03e-4a22-908c-81d861e16b59",
+              "createdAt": "2026-10-21T20:24:21.000Z",
+              "updatedAt": "2026-10-21T20:24:21.000Z",
+              "uid": "35240-b4859c87-b03e-4a22-908c-81d861e16b59"
+            },
+            {
+              "name": "Create a Webhook",
+              "id": "f0fb920d-c825-4eca-ab94-420ab4f9a2b6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"endpoint\": \"https://cmNY!*@w\",\n  \"eventTypes\": [\n    \"functions.invocations.pending\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "webhooks"
+                  ]
+                },
+                "description": "Register an HTTPS endpoint to receive events for this project. The response includes the signing secret, which is shown only here and when the secret is rotated. Store it before discarding the response. An endpoint may only be registered once per project."
+              },
+              "response": [
+                {
+                  "id": "d6e2fbde-333c-45fe-8cc4-f6c3f018d2fb",
+                  "name": "The webhook has been created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"endpoint\": \"https://cmNY!*@w\",\n  \"eventTypes\": [\n    \"functions.invocations.pending\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/webhooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "webhooks"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"createdAt\": \"<dateTime>\",\n  \"endpoint\": \"https://M_jz\",\n  \"eventTypes\": [\n    \"functions.builds.failed\"\n  ],\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-d6e2fbde-333c-45fe-8cc4-f6c3f018d2fb"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:21.000Z",
+              "updatedAt": "2026-10-21T20:24:21.000Z",
+              "uid": "35240-f0fb920d-c825-4eca-ab94-420ab4f9a2b6"
+            },
+            {
+              "name": "List Webhooks",
+              "id": "c9fa48b9-8d1a-4354-92d2-c605196e85bf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/webhooks?limit=20&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Cursor from a previous response's `nextCursor`. Omit for the first page.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List the project's webhooks, newest first. Signing secrets are not included. Page by passing the previous response's `nextCursor` as `cursor`; a null `nextCursor` means there are no further pages."
+              },
+              "response": [
+                {
+                  "id": "0dc00cd8-703b-43b2-acb3-f33aa9c50984",
+                  "name": "A page of webhooks.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/webhooks?limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Cursor from a previous response's `nextCursor`. Omit for the first page.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"endpoint\": \"https://@Py\",\n      \"eventTypes\": [\n        \"functions.invocations.completed\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"endpoint\": \"https://wCIq8Q\",\n      \"eventTypes\": [\n        \"functions.invocations.pending\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"nextCursor\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:24:21.000Z",
+                  "updatedAt": "2026-10-21T20:24:21.000Z",
+                  "uid": "35240-0dc00cd8-703b-43b2-acb3-f33aa9c50984"
+                }
+              ],
+              "createdAt": "2026-10-21T20:24:21.000Z",
+              "updatedAt": "2026-10-21T20:24:21.000Z",
+              "uid": "35240-c9fa48b9-8d1a-4354-92d2-c605196e85bf"
+            }
+          ],
+          "id": "d0af8389-1f4f-469c-8176-ee780a73e8b0",
+          "createdAt": "2026-10-21T20:24:21.000Z",
+          "updatedAt": "2026-10-21T20:24:21.000Z",
+          "uid": "35240-d0af8389-1f4f-469c-8176-ee780a73e8b0"
+        }
+      ],
+      "id": "08ec0a4c-335a-4873-97b3-a047b9b4aaa9",
+      "createdAt": "2026-10-21T20:24:21.000Z",
+      "updatedAt": "2026-10-21T20:24:21.000Z",
+      "uid": "35240-08ec0a4c-335a-4873-97b3-a047b9b4aaa9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
+    }
+  ]
+}

@@ -1,0 +1,1300 @@
+{
+  "info": {
+    "_postman_id": "023deccb-a2ae-47b6-8b23-5bb87b4460c2",
+    "name": "Browserbase Agents API",
+    "description": "Browserbase API for 3rd party developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:23:38.000Z",
+    "updatedAt": "2026-10-21T20:23:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-023deccb-a2ae-47b6-8b23-5bb87b4460c2"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "agents",
+          "item": [
+            {
+              "name": "runs",
+              "item": [
+                {
+                  "name": "{runId}",
+                  "item": [
+                    {
+                      "name": "messages",
+                      "item": [
+                        {
+                          "name": "List Run Messages",
+                          "id": "0dc599b4-dd42-4c64-af87-bc6f2db5e227",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/agents/runs/:runId/messages?since=<string>&limit=20&all=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "agents",
+                                "runs",
+                                ":runId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The `id` of the last message you've already received. The response will contain messages produced after that one, in chronological order. Omit on the first call. Pass the previous response's `nextSince` value to continue paging or to poll for new messages.",
+                                  "key": "since",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of messages to return.",
+                                  "key": "limit",
+                                  "value": "20"
+                                },
+                                {
+                                  "description": "Return every message after `since` in one response, ignoring `limit`.",
+                                  "key": "all",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "da0c00e8-fcab-41f1-aa03-7ad1bc8a8e8a",
+                                  "key": "runId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) The run ID."
+                                }
+                              ]
+                            },
+                            "description": "Returns a paginated list of messages produced by a run, in chronological order, with the oldest messages first.\n\nMessages conform to the AI SDK UIMessage format."
+                          },
+                          "response": [
+                            {
+                              "id": "49af7b12-1344-4698-8122-bb3d937bfc11",
+                              "name": "The page of messages, in chronological order, with the oldest messages first.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/agents/runs/:runId/messages?since=<string>&limit=20&all=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "agents",
+                                    "runs",
+                                    ":runId",
+                                    "messages"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The `id` of the last message you've already received. The response will contain messages produced after that one, in chronological order. Omit on the first call. Pass the previous response's `nextSince` value to continue paging or to poll for new messages.",
+                                      "key": "since",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of messages to return.",
+                                      "key": "limit",
+                                      "value": "20"
+                                    },
+                                    {
+                                      "description": "Return every message after `since` in one response, ignoring `limit`.",
+                                      "key": "all",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"<string>\"\n      }\n    }\n  ],\n  \"nextSince\": \"<string,null>\"\n}",
+                              "createdAt": "2026-10-21T20:23:39.000Z",
+                              "updatedAt": "2026-10-21T20:23:39.000Z",
+                              "uid": "35240-49af7b12-1344-4698-8122-bb3d937bfc11"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:23:39.000Z",
+                          "updatedAt": "2026-10-21T20:23:39.000Z",
+                          "uid": "35240-0dc599b4-dd42-4c64-af87-bc6f2db5e227"
+                        }
+                      ],
+                      "id": "31f61f74-3be9-4e7d-8b87-b14edb4893c7",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-31f61f74-3be9-4e7d-8b87-b14edb4893c7"
+                    },
+                    {
+                      "name": "resume",
+                      "item": [
+                        {
+                          "name": "Resume a Run",
+                          "id": "167f754c-145b-4673-9050-717bea7cc47a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"task\": \"<string>\",\n  \"variables\": {\n    \"enim9\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/agents/runs/:runId/resume",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "agents",
+                                "runs",
+                                ":runId",
+                                "resume"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2e6bf39b-fcd3-4de1-9138-73d1475e2cc9",
+                                  "key": "runId",
+                                  "value": "<string>",
+                                  "description": "(Required) The run ID."
+                                }
+                              ]
+                            },
+                            "description": "Resume a `PAUSED` run with additional input. The reply in `task` is delivered to the agent as the answer to its pause request (the trailing `pause` tool call in the run's messages), and `variables` merge over the run's original variables. Resuming a run that is not paused returns a conflict."
+                          },
+                          "response": [
+                            {
+                              "id": "8614b0d0-7191-465a-8baa-05ff4574f40f",
+                              "name": "The resume has been accepted and the run is `RUNNING` again. Poll the run for its next state.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"task\": \"<string>\",\n  \"variables\": {\n    \"enim9\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/agents/runs/:runId/resume",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "agents",
+                                    "runs",
+                                    ":runId",
+                                    "resume"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Accepted",
+                              "code": 202,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"runId\": \"<string>\",\n  \"task\": \"<string>\",\n  \"status\": \"STOPPED\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"agentId\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sandboxId\": \"<string>\",\n  \"resultSchema\": {\n    \"elit_b\": 53042271\n  },\n  \"result\": {\n    \"ipsum_dee\": -32432229,\n    \"adipisicing_1e_\": 75442271\n  },\n  \"cause\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:23:39.000Z",
+                              "updatedAt": "2026-10-21T20:23:39.000Z",
+                              "uid": "35240-8614b0d0-7191-465a-8baa-05ff4574f40f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:23:39.000Z",
+                          "updatedAt": "2026-10-21T20:23:39.000Z",
+                          "uid": "35240-167f754c-145b-4673-9050-717bea7cc47a"
+                        }
+                      ],
+                      "id": "fe8aa42b-01cd-4a0e-9224-46471f2b129d",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-fe8aa42b-01cd-4a0e-9224-46471f2b129d"
+                    },
+                    {
+                      "name": "stop",
+                      "item": [
+                        {
+                          "name": "Stop a Run",
+                          "id": "42fd8b3c-8692-41dc-9de3-1e11bae804a3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/agents/runs/:runId/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "agents",
+                                "runs",
+                                ":runId",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ccab0230-fe14-4a69-a3ab-9d1d57a3724a",
+                                  "key": "runId",
+                                  "value": "<string>",
+                                  "description": "(Required) The run ID."
+                                }
+                              ]
+                            },
+                            "description": "Request that an in-progress run stop. The run winds down and transitions to `STOPPED`. Stopping a run that has already finished returns a conflict."
+                          },
+                          "response": [
+                            {
+                              "id": "b52a18a9-bd08-41ec-bb07-5c7d3989f797",
+                              "name": "The stop has been requested. Poll the run until its status is `STOPPED` to confirm it wound down.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-BB-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/agents/runs/:runId/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "agents",
+                                    "runs",
+                                    ":runId",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "runId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Accepted",
+                              "code": 202,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"runId\": \"<string>\",\n  \"task\": \"<string>\",\n  \"status\": \"STOPPED\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"agentId\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sandboxId\": \"<string>\",\n  \"resultSchema\": {\n    \"elit_b\": 53042271\n  },\n  \"result\": {\n    \"ipsum_dee\": -32432229,\n    \"adipisicing_1e_\": 75442271\n  },\n  \"cause\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:23:39.000Z",
+                              "updatedAt": "2026-10-21T20:23:39.000Z",
+                              "uid": "35240-b52a18a9-bd08-41ec-bb07-5c7d3989f797"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:23:39.000Z",
+                          "updatedAt": "2026-10-21T20:23:39.000Z",
+                          "uid": "35240-42fd8b3c-8692-41dc-9de3-1e11bae804a3"
+                        }
+                      ],
+                      "id": "579c9d59-b0eb-419c-a552-25389344fcfe",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-579c9d59-b0eb-419c-a552-25389344fcfe"
+                    },
+                    {
+                      "name": "Get a Run",
+                      "id": "11fd845c-9811-44c0-9a7a-859879dc0873",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/runs/:runId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            "runs",
+                            ":runId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "95659af1-29a4-4ba1-9cc8-c2f376715c90",
+                              "key": "runId",
+                              "value": "<string>",
+                              "description": "(Required) The run ID."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the current status and details of a run, including its result and associated session information. To fetch the run's messages, use List Run Messages."
+                      },
+                      "response": [
+                        {
+                          "id": "a3eaa797-a9a9-4de7-8696-de26231714a7",
+                          "name": "The agent run.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-BB-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/agents/runs/:runId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "agents",
+                                "runs",
+                                ":runId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"runId\": \"<string>\",\n  \"task\": \"<string>\",\n  \"status\": \"STOPPED\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"agentId\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sandboxId\": \"<string>\",\n  \"resultSchema\": {\n    \"elit_b\": 53042271\n  },\n  \"result\": {\n    \"ipsum_dee\": -32432229,\n    \"adipisicing_1e_\": 75442271\n  },\n  \"cause\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:23:39.000Z",
+                          "updatedAt": "2026-10-21T20:23:39.000Z",
+                          "uid": "35240-a3eaa797-a9a9-4de7-8696-de26231714a7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-11fd845c-9811-44c0-9a7a-859879dc0873"
+                    }
+                  ],
+                  "id": "a3de5e4f-1ae0-4916-bf9b-3d7c7f98709a",
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-a3de5e4f-1ae0-4916-bf9b-3d7c7f98709a"
+                },
+                {
+                  "name": "Run an Agent",
+                  "id": "5d9c78a3-7cc7-4ea6-b566-21239f9165f1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"task\": \"<string>\",\n  \"agentId\": \"<string>\",\n  \"resultSchema\": {\n    \"sunt874\": -84543,\n    \"ametc49\": 9595469\n  },\n  \"browserSettings\": {\n    \"context\": {\n      \"id\": \"<string>\",\n      \"persist\": \"<boolean>\"\n    },\n    \"proxies\": [\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"VQ\",\n          \"city\": \"<string>\",\n          \"state\": \"ov\"\n        },\n        \"domainPattern\": \"<string>\"\n      },\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"bH\",\n          \"city\": \"<string>\",\n          \"state\": \"vg\"\n        },\n        \"domainPattern\": \"<string>\"\n      }\n    ],\n    \"verified\": \"<boolean>\"\n  },\n  \"variables\": {\n    \"proident_826\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"aliquip_d_8\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"sita64\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  },\n  \"pauseWhen\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents/runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents",
+                        "runs"
+                      ]
+                    },
+                    "description": "Run a browser agent to complete the `task` by using web search and browser tooling. Optionally pass `agentId` to run a custom agent you've created."
+                  },
+                  "response": [
+                    {
+                      "id": "f43b2fb1-7fc8-4b1c-ab1f-dde2e932d69f",
+                      "name": "The agent run has been created in `pending` state.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"task\": \"<string>\",\n  \"agentId\": \"<string>\",\n  \"resultSchema\": {\n    \"sunt874\": -84543,\n    \"ametc49\": 9595469\n  },\n  \"browserSettings\": {\n    \"context\": {\n      \"id\": \"<string>\",\n      \"persist\": \"<boolean>\"\n    },\n    \"proxies\": [\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"VQ\",\n          \"city\": \"<string>\",\n          \"state\": \"ov\"\n        },\n        \"domainPattern\": \"<string>\"\n      },\n      {\n        \"type\": \"browserbase\",\n        \"geolocation\": {\n          \"country\": \"bH\",\n          \"city\": \"<string>\",\n          \"state\": \"vg\"\n        },\n        \"domainPattern\": \"<string>\"\n      }\n    ],\n    \"verified\": \"<boolean>\"\n  },\n  \"variables\": {\n    \"proident_826\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"aliquip_d_8\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"sita64\": {\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  },\n  \"pauseWhen\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            "runs"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"runId\": \"<string>\",\n  \"task\": \"<string>\",\n  \"status\": \"STOPPED\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"agentId\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sandboxId\": \"<string>\",\n  \"resultSchema\": {\n    \"elit_b\": 53042271\n  },\n  \"result\": {\n    \"ipsum_dee\": -32432229,\n    \"adipisicing_1e_\": 75442271\n  },\n  \"cause\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-f43b2fb1-7fc8-4b1c-ab1f-dde2e932d69f"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-5d9c78a3-7cc7-4ea6-b566-21239f9165f1"
+                },
+                {
+                  "name": "List Runs",
+                  "id": "040adf2a-8e70-4f0e-813b-13c4e0815782",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents/runs?status=PAUSED&agentId=<string>&startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents",
+                        "runs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Current status of the run.\n- `PENDING` - agent will run soon\n- `RUNNING` - agent is currently running\n- `COMPLETED` - agent has finished running\n- `FAILED` - agent has failed the run\n- `STOPPED` - run was stopped by the user\n- `TIMED_OUT` - run exceeded maximum time\n- `PAUSED` - run is paused awaiting input from the caller; the agent's request is the trailing `pause` tool call in the run's messages",
+                          "key": "status",
+                          "value": "PAUSED"
+                        },
+                        {
+                          "description": "Only return runs that reference this agent ID.",
+                          "key": "agentId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Only return runs created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                          "key": "startAt",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Only return runs created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                          "key": "endAt",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Omit to start from the first page.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "List runs across your account. Supports filtering by status, by the agent they reference, and by creation time."
+                  },
+                  "response": [
+                    {
+                      "id": "f3011711-f973-4e51-93fa-8b8c75e22e94",
+                      "name": "The page of matching agent runs.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/runs?status=PAUSED&agentId=<string>&startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            "runs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Current status of the run.\n- `PENDING` - agent will run soon\n- `RUNNING` - agent is currently running\n- `COMPLETED` - agent has finished running\n- `FAILED` - agent has failed the run\n- `STOPPED` - run was stopped by the user\n- `TIMED_OUT` - run exceeded maximum time\n- `PAUSED` - run is paused awaiting input from the caller; the agent's request is the trailing `pause` tool call in the run's messages",
+                              "key": "status",
+                              "value": "PAUSED"
+                            },
+                            {
+                              "description": "Only return runs that reference this agent ID.",
+                              "key": "agentId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Only return runs created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                              "key": "startAt",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Only return runs created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                              "key": "endAt",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Maximum number of results to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Omit to start from the first page.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"runId\": \"<string>\",\n      \"task\": \"<string>\",\n      \"status\": \"PAUSED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"agentId\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"sandboxId\": \"<string>\",\n      \"resultSchema\": {\n        \"consecteturb\": false,\n        \"Excepteur1c\": 65960094.91411859\n      },\n      \"result\": {\n        \"Lorema\": 32945501.64397064,\n        \"adipisicing_88\": -26696290\n      },\n      \"cause\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      \"startedAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\"\n    },\n    {\n      \"runId\": \"<string>\",\n      \"task\": \"<string>\",\n      \"status\": \"STOPPED\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"agentId\": \"<string>\",\n      \"sessionId\": \"<string>\",\n      \"sandboxId\": \"<string>\",\n      \"resultSchema\": {\n        \"Lorem_a2\": true,\n        \"minim1\": \"amet dolore\",\n        \"elit_80c\": 19041033\n      },\n      \"result\": {\n        \"ipsume\": \"ut enim elit\",\n        \"deserunt74_\": -96880269.7613683\n      },\n      \"cause\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      \"startedAt\": \"<dateTime>\",\n      \"endedAt\": \"<dateTime>\"\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"nextCursor\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-f3011711-f973-4e51-93fa-8b8c75e22e94"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-040adf2a-8e70-4f0e-813b-13c4e0815782"
+                }
+              ],
+              "id": "119a4832-4bdd-49aa-a62b-e95dcbdee230",
+              "createdAt": "2026-10-21T20:23:39.000Z",
+              "updatedAt": "2026-10-21T20:23:39.000Z",
+              "uid": "35240-119a4832-4bdd-49aa-a62b-e95dcbdee230"
+            },
+            {
+              "name": "{agentId}",
+              "item": [
+                {
+                  "name": "Get an Agent",
+                  "id": "9453c981-7f3a-4487-8d12-0cdfa7cf404d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents/:agentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents",
+                        ":agentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ad08e45b-0aa9-45eb-aec1-b310ab5eebee",
+                          "key": "agentId",
+                          "value": "<string>",
+                          "description": "(Required) The agent ID."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve an agent by ID."
+                  },
+                  "response": [
+                    {
+                      "id": "4f462b18-3f5c-4ae5-9764-f8614035e568",
+                      "name": "The agent.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/:agentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            ":agentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "agentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"agentId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"do_4f9\": -81281361.7934427,\n    \"Duis_425\": false\n  }\n}",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-4f462b18-3f5c-4ae5-9764-f8614035e568"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-9453c981-7f3a-4487-8d12-0cdfa7cf404d"
+                },
+                {
+                  "name": "Update an Agent",
+                  "id": "216d376a-8874-4c93-9228-e728dadc2c1f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"culpa_c__\": -45630775\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents/:agentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents",
+                        ":agentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "faa6c9b5-d6a9-4a7d-9acb-474668f711d1",
+                          "key": "agentId",
+                          "value": "<string>",
+                          "description": "(Required) The agent ID."
+                        }
+                      ]
+                    },
+                    "description": "Update an existing agent. Only the fields provided in the body are modified; omitted fields are left unchanged."
+                  },
+                  "response": [
+                    {
+                      "id": "93784b36-c0ab-4b36-9d65-8f1f40601ec9",
+                      "name": "The updated agent.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"culpa_c__\": -45630775\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/:agentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            ":agentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "agentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"agentId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"do_4f9\": -81281361.7934427,\n    \"Duis_425\": false\n  }\n}",
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-93784b36-c0ab-4b36-9d65-8f1f40601ec9"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-216d376a-8874-4c93-9228-e728dadc2c1f"
+                },
+                {
+                  "name": "Delete an Agent",
+                  "id": "851bf47f-cc45-4212-a26e-4c9f73115b73",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents/:agentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents",
+                        ":agentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "464b30bf-4f30-4947-bf9d-f3476e08125b",
+                          "key": "agentId",
+                          "value": "<string>",
+                          "description": "(Required) The agent ID."
+                        }
+                      ]
+                    },
+                    "description": "Delete an agent. Runs that already referenced this agent are unaffected."
+                  },
+                  "response": [
+                    {
+                      "id": "7ae5257f-2a4e-4bb4-9065-afd5bc08fe3a",
+                      "name": "The agent has been deleted. Idempotent: deleting an already-deleted or non-existent agent returns 204.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-BB-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/agents/:agentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "agents",
+                            ":agentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "agentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:23:39.000Z",
+                      "updatedAt": "2026-10-21T20:23:39.000Z",
+                      "uid": "35240-7ae5257f-2a4e-4bb4-9065-afd5bc08fe3a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-851bf47f-cc45-4212-a26e-4c9f73115b73"
+                }
+              ],
+              "id": "230c7a1c-804b-4733-8173-cd16c18f343f",
+              "createdAt": "2026-10-21T20:23:39.000Z",
+              "updatedAt": "2026-10-21T20:23:39.000Z",
+              "uid": "35240-230c7a1c-804b-4733-8173-cd16c18f343f"
+            },
+            {
+              "name": "Create an Agent",
+              "id": "25f791f1-a6ce-4ab1-9599-f40bd0494381",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"ad__\": -33337746,\n    \"ine\": -12464381\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/agents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "agents"
+                  ]
+                },
+                "description": "Create a reusable agent. An agent defines a `systemPrompt` and `resultSchema` that guide its behavior for every run. Only `name` is required; an agent created with no `systemPrompt` behaves like an unconfigured run."
+              },
+              "response": [
+                {
+                  "id": "e8b30c05-5cf3-4a1b-aab2-0f60c65b403b",
+                  "name": "The agent has been created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"ad__\": -33337746,\n    \"ine\": -12464381\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"agentId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"systemPrompt\": \"<string>\",\n  \"resultSchema\": {\n    \"do_4f9\": -81281361.7934427,\n    \"Duis_425\": false\n  }\n}",
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-e8b30c05-5cf3-4a1b-aab2-0f60c65b403b"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:39.000Z",
+              "updatedAt": "2026-10-21T20:23:39.000Z",
+              "uid": "35240-25f791f1-a6ce-4ab1-9599-f40bd0494381"
+            },
+            {
+              "name": "List Agents",
+              "id": "e6b7fb91-c39a-4b78-86be-71865651976f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/agents?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "agents"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return agents created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                      "key": "startAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return agents created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                      "key": "endAt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Omit to start from the first page.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List agents across your account. Supports filtering by creation time."
+              },
+              "response": [
+                {
+                  "id": "ad5e2189-951f-4780-af13-8f6d721f2545",
+                  "name": "The page of matching agents.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-BB-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/agents?startAt=<dateTime>&endAt=<dateTime>&limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "agents"
+                      ],
+                      "query": [
+                        {
+                          "description": "Only return agents created on or after this timestamp (inclusive). RFC 3339, e.g. 2026-01-19T00:00:00Z.",
+                          "key": "startAt",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Only return agents created on or before this timestamp (inclusive). RFC 3339, e.g. 2026-01-20T00:00:00Z.",
+                          "key": "endAt",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Pagination cursor. Pass the nextCursor from the previous response to fetch the next page. Omit to start from the first page.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"agentId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"systemPrompt\": \"<string>\",\n      \"resultSchema\": {\n        \"anim_136\": \"veniam magna tempor\",\n        \"consequat_f2d\": true,\n        \"autecb\": \"incididunt Excepteur\"\n      }\n    },\n    {\n      \"agentId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"systemPrompt\": \"<string>\",\n      \"resultSchema\": {\n        \"ut_4\": false,\n        \"officia_8e\": 46388934,\n        \"id48a\": \"nulla pariatur ut veniam\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"nextCursor\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:23:39.000Z",
+                  "updatedAt": "2026-10-21T20:23:39.000Z",
+                  "uid": "35240-ad5e2189-951f-4780-af13-8f6d721f2545"
+                }
+              ],
+              "createdAt": "2026-10-21T20:23:39.000Z",
+              "updatedAt": "2026-10-21T20:23:39.000Z",
+              "uid": "35240-e6b7fb91-c39a-4b78-86be-71865651976f"
+            }
+          ],
+          "id": "57782f82-bb2d-49f7-b028-0351e52d1152",
+          "createdAt": "2026-10-21T20:23:39.000Z",
+          "updatedAt": "2026-10-21T20:23:39.000Z",
+          "uid": "35240-57782f82-bb2d-49f7-b028-0351e52d1152"
+        }
+      ],
+      "id": "58753985-6255-4acd-924a-4bd8e662067e",
+      "createdAt": "2026-10-21T20:23:39.000Z",
+      "updatedAt": "2026-10-21T20:23:39.000Z",
+      "uid": "35240-58753985-6255-4acd-924a-4bd8e662067e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-BB-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.browserbase.com"
+    }
+  ]
+}
