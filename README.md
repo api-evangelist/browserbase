@@ -1,4 +1,4 @@
-# Browserbase (browserbase)
+# Browserbase
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,103 +66,176 @@
 
 Browserbase is a browser-agent platform that provides managed, headless Chromium browsers and supporting web primitives for AI agents and automation workloads. Customers use a single API key to spin up sessions, fetch and search the web, persist context, route LLM calls, and observe agent behavior across replays and logs. The company maintains the popular open-source Stagehand SDK, a Director UI for agent design, a Browse CLI, and an MCP server. Target customers are AI startups, agent developers, RPA teams, and enterprises running production web automation, with SOC 2 Type II and HIPAA options. Billing is usage-based with a free tier and paid plans on the pricing page.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/browserbase/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/browserbase/refs/heads/main/apis.yml)
+**Areas:** Browser Automation · Browser Infrastructure · AI Agents · Web Scraping · Stagehand · Playwright · Puppeteer · Web Search · Web Fetch · Model Gateway · MCP · Session Recording
 
-## Scope
+## Browserbase on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Browserbase is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/browserbase/](https://apis.io/providers/browserbase/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Headless Browser
-- Browser Infrastructure
-- Web Automation
-- AI Agents
-- Web Scraping
-- Stagehand
-- Playwright
-- Puppeteer
-- Web Search
-- Web Fetch
-- Model Gateway
-- MCP
-- Session Recording
-- Agent Identity
+- [Browserbase Contexts API](https://apis.io/apis/browserbase/browserbase-contexts-api/) — The Contexts API from Browserbase — 2 operation(s) for contexts.
+- [Browserbase Extensions API](https://apis.io/apis/browserbase/browserbase-extensions-api/) — The Extensions API from Browserbase — 2 operation(s) for extensions.
+- [Browserbase Projects API](https://apis.io/apis/browserbase/browserbase-projects-api/) — The Projects API from Browserbase — 3 operation(s) for projects.
+- [Browserbase Sessions API](https://apis.io/apis/browserbase/browserbase-sessions-api/) — The Sessions API from Browserbase — 6 operation(s) for sessions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Browserbase API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Browserbase API is a REST interface for managing cloud-hosted browser sessions, projects, contexts, extensions, downloads, and complementary Search, Fetch, and Functions services. Agents and automation scripts connect via the SDKs or Playwright/Puppeteer compatible endpoints to navigate the web, capture content, and persist authenticated state.
+- [Browserbase Agentic Access](https://apis.io/agentic-access/browserbase/browserbase-agentic-access/)
 
-- **Human URL:** [https://docs.browserbase.com](https://docs.browserbase.com)
-- **Base URL:** `https://api.browserbase.com`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Sessions
-- Projects
-- Contexts
-- Extensions
-- Downloads
-- Search
-- Fetch
-- Functions
-- Stagehand
-- MCP
+- [Browserbase Context](https://apis.io/schemas/browserbase/browserbase-context/)
+- [Browserbase Project](https://apis.io/schemas/browserbase/browserbase-project/)
+- [Browserbase Session](https://apis.io/schemas/browserbase/browserbase-session/)
 
-#### Properties
+#### JSON Structure (3)
 
-- [Documentation](https://docs.browserbase.com)
-- [API Reference](https://docs.browserbase.com/reference/introduction)
-- [Getting Started](https://docs.browserbase.com/quickstart)
-- [Sign Up](https://www.browserbase.com/sign-up)
-- [SDK](https://github.com/browserbase/sdk-node)
-- [SDK](https://github.com/browserbase/sdk-python)
-- [SDK](https://github.com/browserbase/stagehand)
-- [SDK](https://github.com/browserbase/stagehand-python)
-- [C L I](https://github.com/browserbase/browse-cli)
-- [GitHub Repository](https://github.com/browserbase/mcp-server-browserbase)
-- [OpenAPI](openapi/browserbase-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/browserbase.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/browserbase.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/browserbase-session-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Plans](plans/browserbase-plans-pricing.yml)
-- [Rate Limits](rate-limits/browserbase-rate-limits.yml)
-- [Fin Ops](finops/browserbase-finops.yml)
-- [Capabilities](capabilities/sessions.yaml)
-- [Vocabulary](vocabulary/browserbase-vocabulary.yml)
-- [Rules](rules/browserbase-rules.yml)
-- [Changelog](https://www.browserbase.com/changelog)
-- [Status Page](https://status.browserbase.com)
-- [Pricing](https://www.browserbase.com/pricing)
-- [Enterprise](https://www.browserbase.com/enterprise)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Browserbase Context Structure](https://apis.io/json-structure/browserbase/browserbase-context-structure/)
+- [Browserbase Project Structure](https://apis.io/json-structure/browserbase/browserbase-project-structure/)
+- [Browserbase Session Structure](https://apis.io/json-structure/browserbase/browserbase-session-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Browserbase Context](https://apis.io/jsonld/browserbase/browserbase-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Browserbase Vocabulary](https://apis.io/vocabularies/browserbase/browserbase-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Browserbase Create Context Example](https://apis.io/examples/browserbase/browserbase-create-context-example/)
+- [Browserbase Create Session Example](https://apis.io/examples/browserbase/browserbase-create-session-example/)
+- [Browserbase Get Session Debug Example](https://apis.io/examples/browserbase/browserbase-get-session-debug-example/)
+- [Browserbase Get Session Example](https://apis.io/examples/browserbase/browserbase-get-session-example/)
+- [Browserbase List Projects Example](https://apis.io/examples/browserbase/browserbase-list-projects-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Browserbase API](https://apis.io/collections/browserbase/open-browserbase/)
+- [Browserbase Contexts API](https://apis.io/collections/browserbase/open-browserbase-contexts-api/)
+- [Browserbase Contexts Extensions API](https://apis.io/collections/browserbase/open-browserbase-extensions-api/)
+- [Browserbase Contexts Projects API](https://apis.io/collections/browserbase/open-browserbase-projects-api/)
+- [Browserbase Contexts Sessions API](https://apis.io/collections/browserbase/open-browserbase-sessions-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Browserbase — jsonschema rules](https://apis.io/rules/browserbase/browserbase-jsonschema-spectral-rules/)
+- [Browserbase API Rules](https://apis.io/rules/browserbase/browserbase-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Browserbase Authentication](https://apis.io/security/browserbase/browserbase-authentication/)
+- [Browserbase Domain Security](https://apis.io/security/browserbase/browserbase-domain-security/)
+- [Browserbase Vulnerability Disclosure](https://apis.io/security/browserbase/browserbase-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Browserbase Plans Pricing](https://apis.io/plans/browserbase/browserbase-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Browserbase Rate Limits](https://apis.io/rate-limits/browserbase/browserbase-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Browserbase Finops](https://apis.io/finops/browserbase/browserbase-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.browserbase.com)
 - [Documentation](https://docs.browserbase.com)
-- [API Reference](https://docs.browserbase.com/reference/introduction)
-- [Blog](https://www.browserbase.com/blog)
-- [GitHub Organization](https://github.com/browserbase)
+- [API reference](https://docs.browserbase.com/reference/introduction)
 - [Pricing](https://www.browserbase.com/pricing)
-- [Enterprise](https://www.browserbase.com/enterprise)
 - [Changelog](https://www.browserbase.com/changelog)
-- [Status Page](https://status.browserbase.com)
-- [Sign Up](https://www.browserbase.com/sign-up)
-- [Careers](https://www.browserbase.com/careers)
-- [Terms of Service](https://www.browserbase.com/terms-of-service)
-- [Privacy Policy](https://www.browserbase.com/privacy-policy)
-- [L L Ms Txt](https://docs.browserbase.com/llms.txt)
+- [Blog](https://www.browserbase.com/blog)
+- [Terms of service](https://www.browserbase.com/terms-of-service)
+- [Privacy policy](https://www.browserbase.com/privacy-policy)
+- [GitHub](https://github.com/browserbase)
+- [Status](https://status.browserbase.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 51.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 60.7 |
+| Access clarity | 50.0 |
+
+**Agent readiness 23.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/browserbase/](https://apis.io/providers/browserbase/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Browserbase: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/browserbase/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
